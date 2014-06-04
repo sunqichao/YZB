@@ -7,15 +7,77 @@
 //
 
 #import "AppDelegate.h"
+#import "YZBMainViewController.h"
+#import "YZBMenuViewController.h"
+#import "RWTSidebarViewController.h"
+
+@interface AppDelegate ()<YZBMainTapMenuButtonDelegate,YZBMeunViewControllerDelegate>
+
+@property (nonatomic, strong) RWTSidebarViewController *sideBarVC;
+
+@property (nonatomic, strong) YZBMainViewController *mainVC;
+@property (nonatomic, strong) YZBMenuViewController *menuVC;
+
+@property (nonatomic, strong) UINavigationController *mainNav;
+@property (nonatomic, strong) UINavigationController *menuNav;
+
+
+
+
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    /**
+     *  主界面
+     */
+    self.mainVC = [storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+    self.mainVC.delegate = self;
+    
+    /**
+     *  左边菜单界面
+     */
+    self.menuVC = [storyboard instantiateViewControllerWithIdentifier:@"menuVC"];
+    self.menuVC.delegate = self;
+    
+    self.mainNav = [[UINavigationController alloc] initWithRootViewController:_mainVC];
+    self.menuNav = [[UINavigationController alloc] initWithRootViewController:_menuVC];
+    
+    self.sideBarVC = [[RWTSidebarViewController alloc] initWithLeftViewController:_menuVC mainViewController:_mainVC gap:50];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.sideBarVC;
+    self.window.backgroundColor = [UIColor blackColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
+
+
+#pragma mark - main delegate
+
+- (void)YZBMainViewDidTapMenuButton:(YZBMainViewController *)controller
+{
+    [self.sideBarVC toggleMenu];
+
+}
+
+
+#pragma mark - menu delegate
+
+- (void)menuViewDidTapAbout:(YZBMenuViewController *)controller
+{
+    
+
+}
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
