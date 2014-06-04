@@ -7,7 +7,7 @@
 //
 
 #import "YZBMainViewController.h"
-
+#import "YZBIbeaconManager.h"
 @interface YZBMainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *loadingImg;
@@ -46,7 +46,12 @@
 
 - (void)setUpBeacon
 {
-    
+    [[YZBIbeaconManager shareBeaconManager] searchBeaconSuccess:^(NSArray *arr) {
+        _searchTitle.text = [NSString stringWithFormat:@"%d",arr.count];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
     
 }
 

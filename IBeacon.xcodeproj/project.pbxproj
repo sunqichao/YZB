@@ -24,6 +24,9 @@
 		849C0E31193CD0420005F83D /* IBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C0E30193CD0420005F83D /* IBeaconTests.m */; };
 		FAC99065193EC58E0009263E /* loadding.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC99064193EC58E0009263E /* loadding.png */; };
 		FAC9906B193ED2020009263E /* YZBIbeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC9906A193ED2020009263E /* YZBIbeaconManager.m */; };
+		FAC9906F193F195B0009263E /* YZBAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC9906E193F195B0009263E /* YZBAPI.m */; };
+		FAC99075193F1F680009263E /* StoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC99074193F1F680009263E /* StoreModel.m */; };
+		FAC99078193F7AEA0009263E /* YZBAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC99077193F7AEA0009263E /* YZBAPIHelper.m */; };
 		FAE74AB9193EB7E2004EE1F2 /* RWTSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE74AB8193EB7E2004EE1F2 /* RWTSidebarViewController.m */; };
 		FAE74ABC193EB909004EE1F2 /* YZBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE74ABB193EB909004EE1F2 /* YZBMainViewController.m */; };
 		FAE74AC0193EB961004EE1F2 /* YZBMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE74ABF193EB961004EE1F2 /* YZBMenuViewController.m */; };
@@ -63,6 +66,12 @@
 		FAC99064193EC58E0009263E /* loadding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadding.png; sourceTree = "<group>"; };
 		FAC99069193ED2020009263E /* YZBIbeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZBIbeaconManager.h; path = BeaconManager/YZBIbeaconManager.h; sourceTree = "<group>"; };
 		FAC9906A193ED2020009263E /* YZBIbeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZBIbeaconManager.m; path = BeaconManager/YZBIbeaconManager.m; sourceTree = "<group>"; };
+		FAC9906D193F195B0009263E /* YZBAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZBAPI.h; path = API/YZBAPI/YZBAPI.h; sourceTree = "<group>"; };
+		FAC9906E193F195B0009263E /* YZBAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZBAPI.m; path = API/YZBAPI/YZBAPI.m; sourceTree = "<group>"; };
+		FAC99073193F1F680009263E /* StoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreModel.h; path = Model/StoreModel.h; sourceTree = "<group>"; };
+		FAC99074193F1F680009263E /* StoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreModel.m; path = Model/StoreModel.m; sourceTree = "<group>"; };
+		FAC99076193F7AEA0009263E /* YZBAPIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZBAPIHelper.h; path = API/APIHelper/YZBAPIHelper.h; sourceTree = "<group>"; };
+		FAC99077193F7AEA0009263E /* YZBAPIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZBAPIHelper.m; path = API/APIHelper/YZBAPIHelper.m; sourceTree = "<group>"; };
 		FAE74AB7193EB7E2004EE1F2 /* RWTSidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWTSidebarViewController.h; sourceTree = "<group>"; };
 		FAE74AB8193EB7E2004EE1F2 /* RWTSidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWTSidebarViewController.m; sourceTree = "<group>"; };
 		FAE74ABA193EB909004EE1F2 /* YZBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZBMainViewController.h; path = ViewController/Main/YZBMainViewController.h; sourceTree = "<group>"; };
@@ -132,6 +141,7 @@
 		849C0E0B193CD0420005F83D /* IBeacon */ = {
 			isa = PBXGroup;
 			children = (
+				FAC9906C193F192F0009263E /* API */,
 				FAC99068193ED1B80009263E /* BeaconManager */,
 				FAC99067193ED1B30009263E /* View */,
 				FAC99066193ED1AC0009263E /* Model */,
@@ -188,6 +198,8 @@
 		FAC99066193ED1AC0009263E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAC99073193F1F680009263E /* StoreModel.h */,
+				FAC99074193F1F680009263E /* StoreModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -206,6 +218,17 @@
 				FAC9906A193ED2020009263E /* YZBIbeaconManager.m */,
 			);
 			name = BeaconManager;
+			sourceTree = "<group>";
+		};
+		FAC9906C193F192F0009263E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FAC9906D193F195B0009263E /* YZBAPI.h */,
+				FAC9906E193F195B0009263E /* YZBAPI.m */,
+				FAC99076193F7AEA0009263E /* YZBAPIHelper.h */,
+				FAC99077193F7AEA0009263E /* YZBAPIHelper.m */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		FAE74AB3193EB3D3004EE1F2 /* ViewController */ = {
@@ -379,9 +402,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC99078193F7AEA0009263E /* YZBAPIHelper.m in Sources */,
 				FAC9906B193ED2020009263E /* YZBIbeaconManager.m in Sources */,
 				FAE74AB9193EB7E2004EE1F2 /* RWTSidebarViewController.m in Sources */,
+				FAC9906F193F195B0009263E /* YZBAPI.m in Sources */,
 				FAE74ABC193EB909004EE1F2 /* YZBMainViewController.m in Sources */,
+				FAC99075193F1F680009263E /* StoreModel.m in Sources */,
 				849C0E1C193CD0420005F83D /* ViewController.m in Sources */,
 				FAE74AC0193EB961004EE1F2 /* YZBMenuViewController.m in Sources */,
 				849C0E16193CD0420005F83D /* AppDelegate.m in Sources */,
