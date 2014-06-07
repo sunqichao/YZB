@@ -10,6 +10,6 @@
 
 @interface YZBAPIHelper : NSObject
 
-+ (NSString *)getSign;
++ (NSString *)getSignWithKey:(NSString *)appKey;
 
 @end

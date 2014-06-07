@@ -8,11 +8,41 @@
 
 #import "YZBMainViewController.h"
 #import "YZBIbeaconManager.h"
+#import "StoreModel.h"
+
 @interface YZBMainViewController ()
 
+/**
+ *  loading旋转的那个圈
+ */
 @property (weak, nonatomic) IBOutlet UIImageView *loadingImg;
 
+/**
+ *  正在搜索的label
+ */
 @property (weak, nonatomic) IBOutlet UILabel *searchTitle;
+
+/**
+ *  点击直接查看的按钮
+ */
+@property (weak, nonatomic) IBOutlet UIButton *clickToSeeButton;
+
+/**
+ *  “条新信息”的label
+ */
+@property (weak, nonatomic) IBOutlet UILabel *numberOfMessage;
+
+/**
+ *  显示数字的label
+ */
+@property (weak, nonatomic) IBOutlet UILabel *bigNumber;
+
+/**
+ *  向下的那个箭头button
+ */
+@property (weak, nonatomic) IBOutlet UIButton *arrowButton;
+
+
 
 @end
 
@@ -27,13 +57,41 @@
     return self;
 }
 
+
+#pragma mark - ios lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /**
+     *  测试接口的方法
+     */
+    [self testApi];
     
+    /**
+     *  设置beacon的一些参数
+     */
+    [self setUpBeacon];
+    
+    /**
+     *  loading的动画，一期先不做
+     */
 //    [self startAnimation];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    /**
+     *  初始化应该显示和隐藏的控件
+     */
+    self.numberOfMessage.hidden = YES;
+    self.clickToSeeButton.hidden = YES;
+    self.searchTitle.hidden = NO;
+    self.arrowButton.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,16 +100,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)testApi
+{
+    [StoreModel getStoreInformationWithId:@"123" block:^(NSArray *data, NSError *error) {
+        
+    }];
+    
+}
+
 #pragma mark - 设置扫描的状态和信息，并启动扫描
 
 - (void)setUpBeacon
 {
-    [[YZBIbeaconManager shareBeaconManager] searchBeaconSuccess:^(NSArray *arr) {
-        _searchTitle.text = [NSString stringWithFormat:@"%d",arr.count];
-        
-    } failure:^(NSError *error) {
-        NSLog(@"%@",error);
-    }];
+    [[YZBIbeaconManager shareBeaconManager] startMonitoringForBeacons];
+    [[YZBIbeaconManager shareBeaconManager] startRangingForBeacons];
     
 }
 
@@ -95,6 +157,31 @@ double angle = 0.0;
     
     
 }
+
+#pragma mark - 点击设置
+
+- (IBAction)settting:(id)sender {
+    
+    
+}
+
+#pragma mark - 点击向下的箭头按钮来显示和隐藏消息列表
+
+- (IBAction)appearArrow:(id)sender {
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
 
 
 @end

@@ -13,7 +13,8 @@
 
 @end
 
-static NSString * const AFAppDotNetAPIBaseURLString = @"http://localhost:8080/";
+static NSString * const AFAppDotNetAPIBaseURLString = @"http://42.99.16.17:8080/";
+//static NSString * const AFAppDotNetAPIBaseURLString = @"http://192.168.38.53:8080/";
 
 @implementation YZBAPI
 

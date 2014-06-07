@@ -28,13 +28,13 @@
 
 + (void)getStoreInformationWithId:(id)sid block:(void(^)(NSArray *data,NSError *error))block
 {
-    NSString *sign = [YZBAPIHelper getSign];
     NSString *method = @"getProdIbeacon";
-    NSString *appKey = @"01";
+    NSString *appKey = @"13";
     NSString *serviceName = @"prodIbeaconApiService";
     NSString *version = @"1.0";
     NSString *ibeaconId = sid;
-    
+    NSString *sign = [YZBAPIHelper getSignWithKey:appKey];
+
     NSDictionary *param = @{@"sign":sign,
                             @"method":method,
                             @"appKey":appKey,
@@ -43,8 +43,12 @@
                             @"ibeaconId":ibeaconId
                             };
     
-    [[YZBAPI shareYZBAPI] GET:@"elocal-api/api" parameters:param success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    NSString *path = [NSString stringWithFormat:@"elocal/api?sign=%@&method=%@&appKey=%@&serviceName=%@&version=%@&ibeaconId=%@",sign,method,appKey,serviceName,version,ibeaconId];
+    
+
+    [[YZBAPI shareYZBAPI] POST:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         NSArray *postsFromResponse = (NSArray *)JSON;
+        return ;
         NSMutableArray *mutablePosts = [NSMutableArray arrayWithCapacity:[postsFromResponse count]];
         for (NSDictionary *attributes in postsFromResponse) {
             StoreModel *store = [[StoreModel alloc] initWithAttributes:attributes];
@@ -59,6 +63,8 @@
             block([NSArray array], error);
         }
     }];
+    
+    
     
 }
 

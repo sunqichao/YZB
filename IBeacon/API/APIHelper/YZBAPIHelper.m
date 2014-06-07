@@ -7,13 +7,16 @@
 //
 
 #import "YZBAPIHelper.h"
-
+#import "SQC_StringUtility.h"
 @implementation YZBAPIHelper
 
-+ (NSString *)getSign
++ (NSString *)getSignWithKey:(NSString *)appKey
 {
-    
-    return @"";
+    NSString *appkey = @"13";
+    NSString *password = @"iBeacon";
+    NSString *sign = [NSString stringWithFormat:@"%@&%@",appkey,password];
+    NSString *md5Str = [SQC_StringUtility SQCMD5:sign];
+    return md5Str;
 }
 
 

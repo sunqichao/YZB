@@ -8,6 +8,27 @@
 
 #import "YZBIbeaconManager.h"
 
+static NSString * const kUUID = @"74278BDA-B644-4520-8F0C-720EAF059935";
+static NSString * const kIdentifier = @"SomeIdentifier";
+
+static void * const kMonitoringOperationContext = (void *)&kMonitoringOperationContext;
+static void * const kRangingOperationContext = (void *)&kRangingOperationContext;
+
+
+@interface YZBIbeaconManager()<CLLocationManagerDelegate, CBPeripheralManagerDelegate,
+UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) CLBeaconRegion *beaconRegion;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CBPeripheralManager *peripheralManager;
+
+@property (nonatomic, strong) NSArray *detectedBeacons;
+
+@property (nonatomic, unsafe_unretained) void *operationContext;
+
+
+@end
+
 @implementation YZBIbeaconManager
 
 static YZBIbeaconManager *yzbManager = nil;
@@ -20,6 +41,313 @@ static YZBIbeaconManager *yzbManager = nil;
     return yzbManager;
     
 }
+
+#pragma mark - create beaconRegion and location
+
+- (void)createBeaconRegion
+{
+    if (self.beaconRegion)
+        return;
+    
+    NSUUID *proximityUUID = [[NSUUID alloc] initWithUUIDString:kUUID];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:proximityUUID identifier:kIdentifier];
+    self.beaconRegion.notifyEntryStateOnDisplay = YES;
+}
+
+- (void)createLocationManager
+{
+    if (!self.locationManager) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+    }
+}
+
+#pragma mark - 过滤 beacon
+
+- (NSArray *)filteredBeacons:(NSArray *)beacons
+{
+    // Filters duplicate beacons out; this may happen temporarily if the originating device changes its Bluetooth id
+    NSMutableArray *mutableBeacons = [beacons mutableCopy];
+    
+    NSMutableSet *lookup = [[NSMutableSet alloc] init];
+    for (int index = 0; index < [beacons count]; index++) {
+        CLBeacon *curr = [beacons objectAtIndex:index];
+        NSString *identifier = [NSString stringWithFormat:@"%@/%@", curr.major, curr.minor];
+        
+        // this is very fast constant time lookup in a hash table
+        if ([lookup containsObject:identifier]) {
+            [mutableBeacons removeObjectAtIndex:index];
+        } else {
+            [lookup addObject:identifier];
+        }
+    }
+    
+    return [mutableBeacons copy];
+}
+
+
+#pragma mark - 启动beacon监视器，用来检测是否进入beacon区域（7.1以上系统可以在关闭应用的情况下收到通知）
+ 
+- (void)startMonitoringForBeacons
+{
+    [self createLocationManager];
+    
+    self.operationContext = kMonitoringOperationContext;
+
+    [self turnOnMonitoring];
+
+}
+
+
+- (void)turnOnMonitoring
+{
+    NSLog(@"Turning on monitoring...");
+    
+    if (![CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
+        NSLog(@"Couldn't turn on region monitoring: Region monitoring is not available for CLBeaconRegion class.");
+        
+        return;
+    }
+    
+    [self createBeaconRegion];
+    [self.locationManager startMonitoringForRegion:self.beaconRegion];
+    
+    NSLog(@"Monitoring turned on for region: %@.", self.beaconRegion);
+}
+
+
+#pragma mark - 停止监视器
+ 
+- (void)stopMonitoringForBeacons
+{
+    [self.locationManager stopMonitoringForRegion:self.beaconRegion];
+    
+    NSLog(@"Turned off monitoring");
+
+}
+
+#pragma mark -   开始搜索并排列出beacon
+ 
+- (void)startRangingForBeacons
+{
+    [self createLocationManager];
+    self.operationContext = kRangingOperationContext;
+    self.detectedBeacons = [NSArray array];
+    [self turnOnRanging];
+
+}
+
+- (void)turnOnRanging
+{
+    NSLog(@"Turning on ranging...");
+    
+    if (![CLLocationManager isRangingAvailable]) {
+        NSLog(@"Couldn't turn on ranging: Ranging is not available.");
+
+        return;
+    }
+    
+    if (self.locationManager.rangedRegions.count > 0) {
+        NSLog(@"Didn't turn on ranging: Ranging already on.");
+        return;
+    }
+    
+    [self createBeaconRegion];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    
+    NSLog(@"Ranging turned on for region: %@.", self.beaconRegion);
+}
+
+
+#pragma mark -   停止排列
+ 
+- (void)stopRangingForBeacons
+{
+    if (self.locationManager.rangedRegions.count == 0) {
+        NSLog(@"Didn't turn off ranging: Ranging already off.");
+        return;
+    }
+    
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+    
+
+    self.detectedBeacons = [NSArray array];
+
+    
+    NSLog(@"Turned off ranging.");
+
+}
+
+#pragma mark - Location manager delegate methods
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (![CLLocationManager locationServicesEnabled]) {
+        if (self.operationContext == kMonitoringOperationContext) {
+            NSLog(@"Couldn't turn on monitoring: Location services are not enabled.");
+
+            return;
+        } else {
+            NSLog(@"Couldn't turn on ranging: Location services are not enabled.");
+
+            return;
+        }
+    }
+    
+    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorized) {
+        if (self.operationContext == kMonitoringOperationContext) {
+            NSLog(@"Couldn't turn on monitoring: Location services not authorised.");
+
+            return;
+        } else {
+            NSLog(@"Couldn't turn on ranging: Location services not authorised.");
+
+            return;
+        }
+    }
+    
+    if (self.operationContext == kMonitoringOperationContext) {
+
+    } else {
+
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+        didRangeBeacons:(NSArray *)beacons
+               inRegion:(CLBeaconRegion *)region {
+    NSArray *filteredBeacons = [self filteredBeacons:beacons];
+    
+    if (filteredBeacons.count == 0) {
+        NSLog(@"No beacons found nearby.");
+    } else {
+        NSLog(@"Found %lu %@.", (unsigned long)[filteredBeacons count],
+              [filteredBeacons count] > 1 ? @"beacons" : @"beacon");
+    }
+    
+    self.detectedBeacons = filteredBeacons;
+
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+    NSLog(@"Entered region: %@", region);
+    
+    [self sendLocalNotificationForBeaconRegion:(CLBeaconRegion *)region];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+{
+    NSLog(@"Exited region: %@", region);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
+{
+    NSString *stateString = nil;
+    switch (state) {
+        case CLRegionStateInside:
+            stateString = @"inside";
+            break;
+        case CLRegionStateOutside:
+            stateString = @"outside";
+            break;
+        case CLRegionStateUnknown:
+            stateString = @"unknown";
+            break;
+    }
+    NSLog(@"State changed to %@ for region %@.", stateString, region);
+}
+
+#pragma mark - Local notifications
+- (void)sendLocalNotificationForBeaconRegion:(CLBeaconRegion *)region
+{
+    UILocalNotification *notification = [UILocalNotification new];
+    
+    // Notification details
+    notification.alertBody = [NSString stringWithFormat:@"Entered beacon region for UUID: %@",
+                              region.proximityUUID.UUIDString];   // Major and minor are not available at the monitoring stage
+    notification.alertAction = NSLocalizedString(@"View Details", nil);
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+
+#pragma mark -   开始广告beacon （用做当基站，暂时用不上这个功能）
+
+- (void)startAdvertisingBeacon
+{
+    NSLog(@"Turning on advertising...");
+    
+    [self createBeaconRegion];
+    
+    if (!self.peripheralManager)
+        self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    
+    [self turnOnAdvertising];
+    
+    
+}
+- (void)turnOnAdvertising
+{
+    if (self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
+        NSLog(@"Peripheral manager is off.");
+        
+        return;
+    }
+    
+    time_t t;
+    srand((unsigned) time(&t));
+    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:self.beaconRegion.proximityUUID
+                                                                     major:rand()
+                                                                     minor:rand()
+                                                                identifier:self.beaconRegion.identifier];
+    NSDictionary *beaconPeripheralData = [region peripheralDataWithMeasuredPower:nil];
+    [self.peripheralManager startAdvertising:beaconPeripheralData];
+    
+    NSLog(@"Turning on advertising for region: %@.", region);
+}
+
+
+#pragma mark -   停止广告beacon
+
+- (void)stopAdvertisingBeacon
+{
+    [self.peripheralManager stopAdvertising];
+    
+    NSLog(@"Turned off advertising.");
+    
+}
+
+
+#pragma mark - Beacon advertising delegate methods
+- (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheralManager error:(NSError *)error
+{
+    if (error) {
+        NSLog(@"Couldn't turn on advertising: %@", error);
+
+        return;
+    }
+    
+    if (peripheralManager.isAdvertising) {
+        NSLog(@"Turned on advertising.");
+
+    }
+}
+
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheralManager
+{
+    if (peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
+        NSLog(@"Peripheral manager is off.");
+
+        return;
+    }
+    
+    NSLog(@"Peripheral manager is on.");
+    [self turnOnAdvertising];
+}
+
+
 
 
 - (void)searchBeaconSuccess:(void (^)(NSArray *arr))success
