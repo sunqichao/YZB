@@ -50,6 +50,9 @@
 		FA8D05381943586E00E91D7D /* main_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D05201943586E00E91D7D /* main_logo@2x.png */; };
 		FA8D05391943586E00E91D7D /* revolve.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D05211943586E00E91D7D /* revolve.png */; };
 		FA8D053A1943586E00E91D7D /* revolve@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D05221943586E00E91D7D /* revolve@2x.png */; };
+		FA8D05421945884F00E91D7D /* StoreListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D05401945884F00E91D7D /* StoreListCell.m */; };
+		FA8D05431945884F00E91D7D /* StoreListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8D05411945884F00E91D7D /* StoreListCell.xib */; };
+		FA8D05461945886E00E91D7D /* StoreListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D05451945886E00E91D7D /* StoreListView.m */; };
 		FAC99065193EC58E0009263E /* loadding.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC99064193EC58E0009263E /* loadding.png */; };
 		FAC9906B193ED2020009263E /* YZBIbeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC9906A193ED2020009263E /* YZBIbeaconManager.m */; };
 		FAC9906F193F195B0009263E /* YZBAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC9906E193F195B0009263E /* YZBAPI.m */; };
@@ -121,6 +124,11 @@
 		FA8D05201943586E00E91D7D /* main_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_logo@2x.png"; sourceTree = "<group>"; };
 		FA8D05211943586E00E91D7D /* revolve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = revolve.png; sourceTree = "<group>"; };
 		FA8D05221943586E00E91D7D /* revolve@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "revolve@2x.png"; sourceTree = "<group>"; };
+		FA8D053F1945884F00E91D7D /* StoreListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreListCell.h; path = View/StoreListView/StoreListCell.h; sourceTree = "<group>"; };
+		FA8D05401945884F00E91D7D /* StoreListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreListCell.m; path = View/StoreListView/StoreListCell.m; sourceTree = "<group>"; };
+		FA8D05411945884F00E91D7D /* StoreListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreListCell.xib; path = View/StoreListView/StoreListCell.xib; sourceTree = "<group>"; };
+		FA8D05441945886E00E91D7D /* StoreListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreListView.h; path = View/StoreListView/StoreListView.h; sourceTree = "<group>"; };
+		FA8D05451945886E00E91D7D /* StoreListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreListView.m; path = View/StoreListView/StoreListView.m; sourceTree = "<group>"; };
 		FAC99064193EC58E0009263E /* loadding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadding.png; sourceTree = "<group>"; };
 		FAC99069193ED2020009263E /* YZBIbeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZBIbeaconManager.h; path = BeaconManager/YZBIbeaconManager.h; sourceTree = "<group>"; };
 		FAC9906A193ED2020009263E /* YZBIbeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZBIbeaconManager.m; path = BeaconManager/YZBIbeaconManager.m; sourceTree = "<group>"; };
@@ -261,6 +269,18 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		FA8D053B1945826300E91D7D /* StoreListView */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D05441945886E00E91D7D /* StoreListView.h */,
+				FA8D05451945886E00E91D7D /* StoreListView.m */,
+				FA8D053F1945884F00E91D7D /* StoreListCell.h */,
+				FA8D05401945884F00E91D7D /* StoreListCell.m */,
+				FA8D05411945884F00E91D7D /* StoreListCell.xib */,
+			);
+			name = StoreListView;
+			sourceTree = "<group>";
+		};
 		FAC99063193EC5750009263E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +325,7 @@
 		FAC99067193ED1B30009263E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D053B1945826300E91D7D /* StoreListView */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -467,6 +488,7 @@
 				FA8D05341943586E00E91D7D /* main_background@2x.png in Resources */,
 				849C0E19193CD0420005F83D /* Main.storyboard in Resources */,
 				FA8D052D1943586E00E91D7D /* btn_msglist_pressed.png in Resources */,
+				FA8D05431945884F00E91D7D /* StoreListCell.xib in Resources */,
 				FA8D053A1943586E00E91D7D /* revolve@2x.png in Resources */,
 				FA8D05311943586E00E91D7D /* btn_setting_pressed.png in Resources */,
 				FA8D05291943586E00E91D7D /* btn_favorite_pressed.png in Resources */,
@@ -524,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA8D05461945886E00E91D7D /* StoreListView.m in Sources */,
 				FAC99078193F7AEA0009263E /* YZBAPIHelper.m in Sources */,
 				FAC9906B193ED2020009263E /* YZBIbeaconManager.m in Sources */,
 				FAE74AB9193EB7E2004EE1F2 /* RWTSidebarViewController.m in Sources */,
@@ -536,6 +559,7 @@
 				FAE74AC0193EB961004EE1F2 /* YZBMenuViewController.m in Sources */,
 				849C0E16193CD0420005F83D /* AppDelegate.m in Sources */,
 				849C0E12193CD0420005F83D /* main.m in Sources */,
+				FA8D05421945884F00E91D7D /* StoreListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

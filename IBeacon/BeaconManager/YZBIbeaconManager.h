@@ -18,6 +18,8 @@
 
 @interface YZBIbeaconManager : NSObject
 
+@property (nonatomic, strong) NSMutableArray *majorArray;
+
 + (YZBIbeaconManager *)shareBeaconManager;
 
 

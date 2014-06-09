@@ -24,6 +24,8 @@ UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *detectedBeacons;
 
+@property (nonatomic, assign) NSInteger currentBeaconNumber;
+
 @property (nonatomic, unsafe_unretained) void *operationContext;
 
 
@@ -225,7 +227,47 @@ static YZBIbeaconManager *yzbManager = nil;
     }
     
     self.detectedBeacons = filteredBeacons;
+    [self addBeaconMajorID:self.detectedBeacons];
+    if (self.currentBeaconNumber) {
+        if (self.currentBeaconNumber!=_detectedBeacons.count) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"updateStoreInformations" object:nil userInfo:@{@"number":@(self.currentBeaconNumber)}];
+        }
+    }else
+    {
+        self.currentBeaconNumber = _detectedBeacons.count;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateStoreInformations" object:nil userInfo:@{@"number":@(self.currentBeaconNumber)}];
 
+    }
+    
+    
+}
+
+- (void)addBeaconMajorID:(NSArray *)arr
+{
+    if (!_majorArray) {
+        _majorArray = [[NSMutableArray alloc] init];
+    }
+    [arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        CLBeaconRegion *beacon = (CLBeaconRegion *)obj;
+        
+        if (![self isSameBeacon:beacon.major]) {
+            [_majorArray addObject:beacon.major];
+        }
+    }];
+
+}
+
+- (BOOL)isSameBeacon:(NSNumber *)num
+{
+    __block BOOL isSame = NO;
+    for (int i=0; i<_majorArray.count; i++) {
+        NSNumber *beacon = _majorArray[i];
+        if (num==beacon) {
+            isSame = YES;
+        }
+    }
+    return isSame;
+    
 }
 
 
@@ -258,7 +300,8 @@ static YZBIbeaconManager *yzbManager = nil;
     NSLog(@"State changed to %@ for region %@.", stateString, region);
 }
 
-#pragma mark - Local notifications
+#pragma mark - 搜索到ibeacon的本地通知
+
 - (void)sendLocalNotificationForBeaconRegion:(CLBeaconRegion *)region
 {
     UILocalNotification *notification = [UILocalNotification new];
@@ -266,6 +309,8 @@ static YZBIbeaconManager *yzbManager = nil;
     // Notification details
     notification.alertBody = [NSString stringWithFormat:@"Entered beacon region for UUID: %@",
                               region.proximityUUID.UUIDString];   // Major and minor are not available at the monitoring stage
+    
+    notification.alertBody = @"进入小豆子";
     notification.alertAction = NSLocalizedString(@"View Details", nil);
     notification.soundName = UILocalNotificationDefaultSoundName;
     

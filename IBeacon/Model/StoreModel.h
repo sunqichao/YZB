@@ -12,7 +12,9 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
-@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSString *contentURL;
+@property (nonatomic, copy) NSString *imageURL;
+
 
 
 - (instancetype)initWithAttributes:(NSDictionary *)attributes;
