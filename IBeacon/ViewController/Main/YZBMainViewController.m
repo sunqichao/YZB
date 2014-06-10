@@ -126,7 +126,7 @@
     [StoreModel getStoreInformationWithId:idStr block:^(NSArray *data, NSError *error) {
         if (data) {
             [_storeListArray addObjectsFromArray:data];
-            self.storeListView.storeListArray = _storeListArray.copy;
+            self.storeListView.storeListArray = _storeListArray;
         }
     }];
     
@@ -177,6 +177,8 @@ double angle = 0.0;
 
     } completion:^(BOOL finished) {
         [self.storeListView didMoveToParentViewController:self];
+        self.arrowButton.hidden = NO;
+
     }];
 
     
@@ -189,7 +191,7 @@ double angle = 0.0;
         
     } completion:^(BOOL finished) {
         [self.storeListView removeFromParentViewController];
-
+        self.arrowButton.hidden = YES;
     }];
     
 }
@@ -227,7 +229,7 @@ double angle = 0.0;
         _bigNumber.text = number;
         _searchTitle.hidden = YES;
         _clickToSeeButton.hidden = NO;
-        _arrowButton.hidden = NO;
+
         _numberOfMessage.hidden = NO;
         
     }];
@@ -249,6 +251,7 @@ double angle = 0.0;
 - (IBAction)clickInfoList:(id)sender
 {
     [self appearStoreList];
+//    self.storeListView.storeListArray = self.storeListArray;
     [self.storeListView.storeListTable reloadData];
 }
 

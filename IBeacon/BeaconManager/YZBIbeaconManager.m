@@ -242,6 +242,14 @@ static YZBIbeaconManager *yzbManager = nil;
     
 }
 
+- (void)locationManager:(CLLocationManager *)manager
+rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region
+              withError:(NSError *)error __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_7_0)
+{
+    NSLog(@"%@",error);
+    
+}
+
 - (void)addBeaconMajorID:(NSArray *)arr
 {
     if (!_majorArray) {

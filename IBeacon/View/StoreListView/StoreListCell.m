@@ -37,7 +37,7 @@
 {
     if (data) {
         StoreModel *model = (StoreModel *)data;
-        [_coverImage setImageWithURL:[NSURL URLWithString:model.contentURL] placeholderImage:nil];
+        [_coverImage setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:nil];
         _titleLabel.text = model.title;
         _subtitleLabel.text = model.subtitle;
     }
