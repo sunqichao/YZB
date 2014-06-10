@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9CD-Y7-0HU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9CD-Y7-0HU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -152,7 +152,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kXD-sg-lHj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="msglist_tab1.png" id="kXD-sg-lHj">
                                 <rect key="frame" x="0.0" y="200" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -166,9 +166,9 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ipf-2W-2B7">
-                                <rect key="frame" x="32" y="208" width="45" height="30"/>
+                                <rect key="frame" x="12" y="200" width="111" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="新消息">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -176,33 +176,54 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C5F-Vt-Mdv">
-                                <rect key="frame" x="223" y="208" width="60" height="30"/>
+                                <rect key="frame" x="200" y="200" width="114" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="历史消息">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="choseHistory:" destination="kTe-RF-AaG" eventType="touchUpInside" id="xwI-f6-uT7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iGf-iA-hS6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapTheView:" destination="kTe-RF-AaG" eventType="touchUpInside" id="bLZ-rX-T1Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k1p-o7-bdg">
+                                <rect key="frame" x="258" y="0.0" width="62" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <state key="normal" title="x">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeWebView:" destination="kTe-RF-AaG" eventType="touchUpInside" id="Rmt-wf-Rm2"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="msglist_tab_arrow.png" id="840-vs-wyA">
+                                <rect key="frame" x="50" y="246" width="22" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="ucj-Ji-ciM" appends="YES" id="72k-wH-tQ5"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="BVe-6O-Kfr"/>
                     <connections>
+                        <outlet property="arrowDown" destination="840-vs-wyA" id="duo-bv-P0v"/>
+                        <outlet property="closeButton" destination="k1p-o7-bdg" id="X4q-gs-HAv"/>
                         <outlet property="storeListTable" destination="nJN-iT-wwX" id="hW6-j5-XdS"/>
+                        <outlet property="toolBar" destination="kXD-sg-lHj" id="Dhv-uC-Dkq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkl-ma-bWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ucj-Ji-ciM">
-                    <connections>
-                        <action selector="tapTheView:" destination="kTe-RF-AaG" id="0Eg-FN-LQY"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1766" y="-664"/>
         </scene>
@@ -270,6 +291,8 @@
         <image name="btn_setting_pressed.png" width="30" height="30"/>
         <image name="main_background.png" width="320" height="548"/>
         <image name="main_circle.png" width="139" height="139"/>
+        <image name="msglist_tab1.png" width="320" height="44"/>
+        <image name="msglist_tab_arrow.png" width="22" height="12"/>
         <image name="revolve.png" width="140" height="140"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

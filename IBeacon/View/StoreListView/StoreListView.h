@@ -14,4 +14,6 @@
 
 @property (weak, nonatomic) NSArray *storeListArray;
 
+@property (strong, nonatomic) NSArray *historyArray;
+
 @end
