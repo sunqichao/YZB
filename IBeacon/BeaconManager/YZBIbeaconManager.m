@@ -15,23 +15,44 @@ static void * const kMonitoringOperationContext = (void *)&kMonitoringOperationC
 static void * const kRangingOperationContext = (void *)&kRangingOperationContext;
 
 
-@interface YZBIbeaconManager()<CLLocationManagerDelegate, CBPeripheralManagerDelegate,
-UITableViewDataSource, UITableViewDelegate>
+@interface YZBIbeaconManager()<CLLocationManagerDelegate, CBPeripheralManagerDelegate>
 
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CBPeripheralManager *peripheralManager;
 
+/**
+ *  检测到的beacon数组
+ */
 @property (nonatomic, strong) NSArray *detectedBeacons;
 
+/**
+ *  当前的检测到beacon的数量，用来判断是否跟detectedBeacons的数量一样，一样就不更新界面，不一样在更新界面
+ */
 @property (nonatomic, assign) NSInteger currentBeaconNumber;
 
+/**
+ *  当前操作的上下文
+ */
 @property (nonatomic, unsafe_unretained) void *operationContext;
 
+
+@property (strong, nonatomic) NSArray *UUIDArray;
 
 @end
 
 @implementation YZBIbeaconManager
+
+
+- (NSArray *)UUIDArray
+{
+    NSArray *results = @[@"74278BDA-B644-4520-8F0C-720EAF059935",
+                         @"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"];
+
+    return results;
+}
+
+
 
 static YZBIbeaconManager *yzbManager = nil;
 + (YZBIbeaconManager *)shareBeaconManager

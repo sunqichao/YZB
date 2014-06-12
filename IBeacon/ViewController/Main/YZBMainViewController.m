@@ -86,7 +86,7 @@
     [self addDisappearNotification];
     
     /**
-     *  添加更新消息数量的label
+     *  添加更新消息数量的labels
      */
     [self addUpdateStoreInformations];
     
@@ -120,6 +120,8 @@
     // Dispose of any resources that can be recreated.
     
 }
+
+#pragma mark - 根据设备id 请求服务端数据
 
 - (void)getStoreDataWithID:(NSString *)idStr
 {
@@ -251,7 +253,7 @@ double angle = 0.0;
 - (IBAction)clickInfoList:(id)sender
 {
     [self appearStoreList];
-//    self.storeListView.storeListArray = self.storeListArray;
+
     [self.storeListView.storeListTable reloadData];
 }
 

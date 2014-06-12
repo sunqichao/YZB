@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>21884717-80EE-467E-B9AB-159636D683E9</string>
+	<string>E55913B9-78C2-44A1-8A8A-CE1D9917005E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>IBeacon</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>AAB09414-45D4-49F5-ABB2-8D06D06B2604</key>
-		<string>https://github.com/sunqichao/YZB</string>
+		<key>DCA0C457-FC4A-4BCE-A10F-06AD0A889915</key>
+		<string>https://github.com/sunqichao/YZB.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>IBeacon.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>AAB09414-45D4-49F5-ABB2-8D06D06B2604</key>
+		<key>DCA0C457-FC4A-4BCE-A10F-06AD0A889915</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/sunqichao/YZB</string>
+	<string>https://github.com/sunqichao/YZB.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AAB09414-45D4-49F5-ABB2-8D06D06B2604</string>
+	<string>DCA0C457-FC4A-4BCE-A10F-06AD0A889915</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AAB09414-45D4-49F5-ABB2-8D06D06B2604</string>
+			<string>DCA0C457-FC4A-4BCE-A10F-06AD0A889915</string>
 			<key>IDESourceControlWCCName</key>
 			<string>YZB</string>
 		</dict>

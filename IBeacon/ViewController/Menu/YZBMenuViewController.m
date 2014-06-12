@@ -35,15 +35,58 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - 是否接受推送
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)isPushNotification:(id)sender {
+    UISwitch *sw = (UISwitch *)sender;
+    if (sw.on) {
+        /**
+         *  接受推送
+         */
+        NSLog(@"1");
+        
+    }else
+    {
+        /**
+         *  不接受推送
+         */
+
+        NSLog(@"0");
+    }
+    
 }
-*/
+
+#pragma mark - 意见反馈
+
+- (IBAction)gotoFeedBack:(id)sender {
+    
+    
+}
+
+#pragma mark - 更新版本
+
+- (IBAction)updateVersion:(id)sender {
+    
+    
+}
+
+#pragma mark - 关于
+
+- (IBAction)about:(id)sender {
+    
+    
+}
+
+#pragma mark - 推出登录
+
+- (IBAction)logout:(id)sender {
+    
+    
+}
+
+
+
+
+
 
 @end

@@ -42,6 +42,9 @@
 		849C0E27193CD0420005F83D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849C0E09193CD0420005F83D /* UIKit.framework */; };
 		849C0E2F193CD0420005F83D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849C0E2D193CD0420005F83D /* InfoPlist.strings */; };
 		849C0E31193CD0420005F83D /* IBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C0E30193CD0420005F83D /* IBeaconTests.m */; };
+		FA3A3BAF1949492C009EAF33 /* firstArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3A3BAD1949492C009EAF33 /* firstArrow.png */; };
+		FA3A3BB01949492C009EAF33 /* secondArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3A3BAE1949492C009EAF33 /* secondArrow.png */; };
+		FA3A3BB2194951EC009EAF33 /* swift.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3A3BB1194951EC009EAF33 /* swift.png */; };
 		FA8D04FD19414D9600E91D7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8D04FC19414D9600E91D7D /* CoreLocation.framework */; };
 		FA8D04FF19414DA900E91D7D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8D04FE19414DA900E91D7D /* CoreBluetooth.framework */; };
 		FA8D05091941600400E91D7D /* NSString_RegEx.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D05061941600400E91D7D /* NSString_RegEx.m */; };
@@ -134,6 +137,9 @@
 		849C0E2C193CD0420005F83D /* IBeaconTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IBeaconTests-Info.plist"; sourceTree = "<group>"; };
 		849C0E2E193CD0420005F83D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		849C0E30193CD0420005F83D /* IBeaconTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IBeaconTests.m; sourceTree = "<group>"; };
+		FA3A3BAD1949492C009EAF33 /* firstArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstArrow.png; sourceTree = "<group>"; };
+		FA3A3BAE1949492C009EAF33 /* secondArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondArrow.png; sourceTree = "<group>"; };
+		FA3A3BB1194951EC009EAF33 /* swift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swift.png; sourceTree = "<group>"; };
 		FA8D04FC19414D9600E91D7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FA8D04FE19414DA900E91D7D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		FA8D05051941600400E91D7D /* NSString_RegEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_RegEx.h; sourceTree = "<group>"; };
@@ -325,6 +331,9 @@
 			isa = PBXGroup;
 			children = (
 				8488C91619469D8B0067D6FA /* icon_about.png */,
+				FA3A3BB1194951EC009EAF33 /* swift.png */,
+				FA3A3BAD1949492C009EAF33 /* firstArrow.png */,
+				FA3A3BAE1949492C009EAF33 /* secondArrow.png */,
 				8488C91719469D8B0067D6FA /* icon_about@2x.png */,
 				8488C91819469D8B0067D6FA /* icon_feedback.png */,
 				8488C91919469D8B0067D6FA /* icon_feedback@2x.png */,
@@ -533,12 +542,14 @@
 				8488C93619469D8C0067D6FA /* msglist_tab_arrow.png in Resources */,
 				8488C93019469D8C0067D6FA /* icon_setting.png in Resources */,
 				8488C92F19469D8C0067D6FA /* icon_logout@2x.png in Resources */,
+				FA3A3BAF1949492C009EAF33 /* firstArrow.png in Resources */,
 				8488C93719469D8C0067D6FA /* msglist_tab_arrow@2x.png in Resources */,
 				8488C93919469D8C0067D6FA /* msglist_tab1@2x.png in Resources */,
 				8488C93C19469D8C0067D6FA /* photo_mask.png in Resources */,
 				FA8D05301943586E00E91D7D /* btn_setting_normal@2x.png in Resources */,
 				8488C93519469D8C0067D6FA /* msglist_face@2x.png in Resources */,
 				FA8D05381943586E00E91D7D /* main_logo@2x.png in Resources */,
+				FA3A3BB01949492C009EAF33 /* secondArrow.png in Resources */,
 				FA8D052A1943586E00E91D7D /* btn_favorite_pressed@2x.png in Resources */,
 				8488C93A19469D8C0067D6FA /* msglist_tab2.png in Resources */,
 				8488C92E19469D8C0067D6FA /* icon_logout.png in Resources */,
@@ -568,6 +579,7 @@
 				FA8D05341943586E00E91D7D /* main_background@2x.png in Resources */,
 				849C0E19193CD0420005F83D /* Main.storyboard in Resources */,
 				8488C92B19469D8C0067D6FA /* icon_about@2x.png in Resources */,
+				FA3A3BB2194951EC009EAF33 /* swift.png in Resources */,
 				FA8D052D1943586E00E91D7D /* btn_msglist_pressed.png in Resources */,
 				FA8D05431945884F00E91D7D /* StoreListCell.xib in Resources */,
 				8488C93119469D8C0067D6FA /* icon_setting@2x.png in Resources */,

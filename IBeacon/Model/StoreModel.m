@@ -19,10 +19,10 @@
         return nil;
     }
     
-    self.title = [attributes valueForKey:@"messTitle"];
-    self.subtitle = [attributes valueForKey:@"messWord"];
-    self.contentURL = [attributes valueForKey:@"ibeaconUrl"];
-    self.imageURL = [self getRightImageURL:[NSString stringWithFormat:@"%@",[attributes valueForKey:@"imgId"]]];
+    self.title = [attributes valueForKey:@"messTitle"]?[attributes valueForKey:@"messTitle"]:@"";
+    self.subtitle = [attributes valueForKey:@"messWord"]?[attributes valueForKey:@"messWord"]:@"";
+    self.contentURL = [attributes valueForKey:@"ibeaconUrl"]?[attributes valueForKey:@"ibeaconUrl"]:@"";
+    self.imageURL = [self getRightImageURL:[NSString stringWithFormat:@"%@",[attributes valueForKey:@"imgId"]?[attributes valueForKey:@"imgId"]:@""]];
     
     return self;
 }
@@ -59,8 +59,12 @@
         
         NSDictionary *postsFromResponse = (NSDictionary *)JSON;
         NSMutableArray *mutablePosts = [NSMutableArray arrayWithCapacity:[postsFromResponse count]];
-        StoreModel *store = [[StoreModel alloc] initWithAttributes:postsFromResponse[@"simpleObject"]];
-        [mutablePosts addObject:store];
+        id result = postsFromResponse[@"simpleObject"];
+        if ([result isKindOfClass:[NSDictionary class]]) {
+            StoreModel *store = [[StoreModel alloc] initWithAttributes:postsFromResponse[@"simpleObject"]];
+            [mutablePosts addObject:store];
+
+        }
         if (block) {
             block([NSArray arrayWithArray:mutablePosts], nil);
         }
