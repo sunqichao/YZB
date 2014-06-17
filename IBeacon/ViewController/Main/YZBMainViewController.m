@@ -127,10 +127,34 @@
 {
     [StoreModel getStoreInformationWithId:idStr block:^(NSArray *data, NSError *error) {
         if (data) {
-            [_storeListArray addObjectsFromArray:data];
+            [self.storeListArray addObjectsFromArray:[self filterStoreListData:data]];
             self.storeListView.storeListArray = _storeListArray;
         }
     }];
+    
+}
+
+- (NSArray *)filterStoreListData:(NSArray *)arr
+{
+    if (self.storeListArray.count==0||self.storeListArray==nil) {
+        return arr;
+    }else
+    {
+        NSArray *originData = self.storeListArray;
+        NSArray *targetData = arr;
+        NSMutableArray *results = @[].mutableCopy;
+        [originData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            StoreModel *origin = (StoreModel *)obj;
+            [targetData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                StoreModel *target = (StoreModel *)obj;
+                if (![origin.sid isEqual:target.sid]) {
+                    [results addObject:obj];
+                }
+            }];
+        }];
+        
+        return results.copy;
+    }
     
 }
 
@@ -215,34 +239,58 @@ double angle = 0.0;
 {
     [[NSNotificationCenter defaultCenter] addObserverForName:@"updateStoreInformations" object:nil queue:nil usingBlock:^(NSNotification *note) {
         
-        NSMutableArray *majorId = [[YZBIbeaconManager shareBeaconManager] majorArray];
-        if (majorId) {
-            [majorId enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                NSNumber *number = obj;
-                [self getStoreDataWithID:[NSString stringWithFormat:@"%@",number]];
-                
-            }];
-        }
-        
         NSDictionary *numberDic = [note userInfo];
         
         NSString *number = [NSString stringWithFormat:@"%@",numberDic[@"number"]];
-        
-        _bigNumber.text = number;
-        _searchTitle.hidden = YES;
-        _clickToSeeButton.hidden = NO;
+        if (![number isEqual:@"0"]) {
+            NSMutableArray *majorId = [[YZBIbeaconManager shareBeaconManager] majorArray];
+            if (majorId) {
+                [majorId enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    NSNumber *number = obj;
+                    [self getStoreDataWithID:[NSString stringWithFormat:@"%@",number]];
+                    
+                }];
+            }
+            
+            
+            _bigNumber.text = number;
+            _searchTitle.hidden = YES;
+            _clickToSeeButton.hidden = NO;
+            
+            _numberOfMessage.hidden = NO;
+        }else
+        {
+            _bigNumber.text = @"0";
+            self.storeListArray = @[].mutableCopy;
+            self.storeListView.storeListArray = _storeListArray;
+            self.numberOfMessage.hidden = YES;
+            self.clickToSeeButton.hidden = YES;
+            self.searchTitle.hidden = YES;
+            self.arrowButton.hidden = YES;
+            [self performSelector:@selector(changeDisconnect) withObject:nil afterDelay:0.5];
 
-        _numberOfMessage.hidden = NO;
+        }
+        
         
     }];
     
+}
+
+/**
+ *  改变beacon的检测状态，延迟设置为NO，表示为可链接蓝牙状态 
+ */
+- (void)changeDisconnect
+{
+    [[YZBIbeaconManager shareBeaconManager] setIsDisconnect:NO];
+
 }
 
 #pragma mark - 点击出现左边菜单的方法回调
 
 - (IBAction)clickSideMenu:(id)sender
 {
-    if (self.delegate&&[self.delegate respondsToSelector:@selector(YZBMainViewDidTapMenuButton:)]) {
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(YZBMainViewDidTapMenuButton:)])
+    {
         [self.delegate YZBMainViewDidTapMenuButton:self];
     }
     
@@ -253,7 +301,7 @@ double angle = 0.0;
 - (IBAction)clickInfoList:(id)sender
 {
     [self appearStoreList];
-
+    self.storeListView.storeListArray = _storeListArray;
     [self.storeListView.storeListTable reloadData];
 }
 

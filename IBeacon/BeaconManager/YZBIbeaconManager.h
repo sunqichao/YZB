@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) NSMutableArray *majorArray;
 
+@property (assign, nonatomic) BOOL isDisconnect;
+
 + (YZBIbeaconManager *)shareBeaconManager;
 
 
@@ -53,7 +55,10 @@
  */
 - (void)stopRangingForBeacons;
 
-
+/**
+ *  判断majorid是否相同
+ */
+- (BOOL)isSameBeacon:(NSNumber *)num;
 
 
 - (void)searchBeaconSuccess:(void (^)(NSArray *arr))success

@@ -18,7 +18,7 @@
     if (!self) {
         return nil;
     }
-    
+    self.sid = [attributes valueForKey:@"id"]?[attributes valueForKey:@"id"]:@"";
     self.title = [attributes valueForKey:@"messTitle"]?[attributes valueForKey:@"messTitle"]:@"";
     self.subtitle = [attributes valueForKey:@"messWord"]?[attributes valueForKey:@"messWord"]:@"";
     self.contentURL = [attributes valueForKey:@"ibeaconUrl"]?[attributes valueForKey:@"ibeaconUrl"]:@"";
@@ -41,6 +41,35 @@
     
     return path;
 }
+
+
+
++ (BOOL)isSameHistoryData:(id)data
+{
+    __block BOOL isSame = NO;
+    StoreModel *target = (StoreModel *)data;
+    NSArray *history = [SingleDataManager shareSingleDataManager].historyArray;
+    if (!history||history.count==0) {
+        return NO;
+    }
+    [history enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        StoreModel *hisData = (StoreModel *)obj;
+        if ([hisData.sid isEqual:target.sid]) {
+            isSame = YES;
+        }
+        
+    }];
+    
+    
+    return isSame;
+}
+
+
+
+
+
+
+
 
 
 + (void)getStoreInformationWithId:(id)sid block:(void(^)(NSArray *data,NSError *error))block

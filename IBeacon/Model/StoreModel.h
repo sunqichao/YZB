@@ -10,6 +10,7 @@
 
 @interface StoreModel : NSObject
 
+@property (nonatomic, copy) NSString *sid;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
 @property (nonatomic, copy) NSString *contentURL;
@@ -18,6 +19,15 @@
 
 
 - (instancetype)initWithAttributes:(NSDictionary *)attributes;
+
+/**
+ *  判断插入历史消息中的数据是否是已经在历史数据的数组中存在
+ *
+ *  @param data 要判断的数据
+ *
+ *  @return 如果已经存在返回yes
+ */
++ (BOOL)isSameHistoryData:(id)data;
 
 
 /**

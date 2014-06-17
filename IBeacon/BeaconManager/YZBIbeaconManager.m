@@ -39,6 +39,7 @@ static void * const kRangingOperationContext = (void *)&kRangingOperationContext
 
 @property (strong, nonatomic) NSArray *UUIDArray;
 
+
 @end
 
 @implementation YZBIbeaconManager
@@ -246,18 +247,24 @@ static YZBIbeaconManager *yzbManager = nil;
         NSLog(@"Found %lu %@.", (unsigned long)[filteredBeacons count],
               [filteredBeacons count] > 1 ? @"beacons" : @"beacon");
     }
-    
-    self.detectedBeacons = filteredBeacons;
-    [self addBeaconMajorID:self.detectedBeacons];
-    if (self.currentBeaconNumber) {
-        if (self.currentBeaconNumber!=_detectedBeacons.count) {
+    /**
+     *  如果是蓝牙链接状态再进行，（有延迟的情况）
+     */
+    if (!self.isDisconnect) {
+        self.detectedBeacons = filteredBeacons;
+        [self addBeaconMajorID:self.detectedBeacons];
+        if (self.currentBeaconNumber) {
+            if (self.currentBeaconNumber!=_detectedBeacons.count) {
+                self.currentBeaconNumber = self.detectedBeacons.count;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateStoreInformations" object:nil userInfo:@{@"number":@(self.currentBeaconNumber)}];
+            }
+        }else
+        {
+            self.currentBeaconNumber = _detectedBeacons.count;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updateStoreInformations" object:nil userInfo:@{@"number":@(self.currentBeaconNumber)}];
+            
         }
-    }else
-    {
-        self.currentBeaconNumber = _detectedBeacons.count;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateStoreInformations" object:nil userInfo:@{@"number":@(self.currentBeaconNumber)}];
-
+        
     }
     
     
@@ -269,8 +276,20 @@ rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region
 {
     NSLog(@"%@",error);
     
+    /**
+     *  设置为不可链接状态，上面检测的时候就不会做任何操作了
+     */
+    self.isDisconnect = YES;
+    self.currentBeaconNumber = 0;
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateStoreInformations" object:nil userInfo:@{@"number":@(0)}];
 }
 
+/**
+ *  添加主id到majorarray
+ *
+ *  @param arr 检测到的数据
+ */
 - (void)addBeaconMajorID:(NSArray *)arr
 {
     if (!_majorArray) {

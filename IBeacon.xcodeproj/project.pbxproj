@@ -42,6 +42,8 @@
 		849C0E27193CD0420005F83D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849C0E09193CD0420005F83D /* UIKit.framework */; };
 		849C0E2F193CD0420005F83D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849C0E2D193CD0420005F83D /* InfoPlist.strings */; };
 		849C0E31193CD0420005F83D /* IBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C0E30193CD0420005F83D /* IBeaconTests.m */; };
+		FA12C14619498F6700618C12 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA12C14519498F6700618C12 /* icon.png */; };
+		FA12C1491949A76400618C12 /* SingleDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA12C1481949A76400618C12 /* SingleDataManager.m */; };
 		FA3A3BAF1949492C009EAF33 /* firstArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3A3BAD1949492C009EAF33 /* firstArrow.png */; };
 		FA3A3BB01949492C009EAF33 /* secondArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3A3BAE1949492C009EAF33 /* secondArrow.png */; };
 		FA3A3BB2194951EC009EAF33 /* swift.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3A3BB1194951EC009EAF33 /* swift.png */; };
@@ -76,6 +78,9 @@
 		FA8D05421945884F00E91D7D /* StoreListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D05401945884F00E91D7D /* StoreListCell.m */; };
 		FA8D05431945884F00E91D7D /* StoreListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8D05411945884F00E91D7D /* StoreListCell.xib */; };
 		FA8D05461945886E00E91D7D /* StoreListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D05451945886E00E91D7D /* StoreListView.m */; };
+		FAC559D419502AC600A68998 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC559D319502AC600A68998 /* UserModel.m */; };
+		FAC559D91950344900A68998 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC559D81950344900A68998 /* LoginViewController.m */; };
+		FAC559DC1950347400A68998 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC559DB1950347400A68998 /* SignUpViewController.m */; };
 		FAC99065193EC58E0009263E /* loadding.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC99064193EC58E0009263E /* loadding.png */; };
 		FAC9906B193ED2020009263E /* YZBIbeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC9906A193ED2020009263E /* YZBIbeaconManager.m */; };
 		FAC9906F193F195B0009263E /* YZBAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC9906E193F195B0009263E /* YZBAPI.m */; };
@@ -84,6 +89,7 @@
 		FAE74AB9193EB7E2004EE1F2 /* RWTSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE74AB8193EB7E2004EE1F2 /* RWTSidebarViewController.m */; };
 		FAE74ABC193EB909004EE1F2 /* YZBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE74ABB193EB909004EE1F2 /* YZBMainViewController.m */; };
 		FAE74AC0193EB961004EE1F2 /* YZBMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE74ABF193EB961004EE1F2 /* YZBMenuViewController.m */; };
+		FAF47865194E8B3900560515 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF47864194E8B3900560515 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +143,9 @@
 		849C0E2C193CD0420005F83D /* IBeaconTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IBeaconTests-Info.plist"; sourceTree = "<group>"; };
 		849C0E2E193CD0420005F83D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		849C0E30193CD0420005F83D /* IBeaconTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IBeaconTests.m; sourceTree = "<group>"; };
+		FA12C14519498F6700618C12 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		FA12C1471949A76400618C12 /* SingleDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleDataManager.h; path = Model/SingleDataManager.h; sourceTree = "<group>"; };
+		FA12C1481949A76400618C12 /* SingleDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleDataManager.m; path = Model/SingleDataManager.m; sourceTree = "<group>"; };
 		FA3A3BAD1949492C009EAF33 /* firstArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstArrow.png; sourceTree = "<group>"; };
 		FA3A3BAE1949492C009EAF33 /* secondArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondArrow.png; sourceTree = "<group>"; };
 		FA3A3BB1194951EC009EAF33 /* swift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swift.png; sourceTree = "<group>"; };
@@ -175,6 +184,12 @@
 		FA8D05411945884F00E91D7D /* StoreListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreListCell.xib; path = View/StoreListView/StoreListCell.xib; sourceTree = "<group>"; };
 		FA8D05441945886E00E91D7D /* StoreListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreListView.h; path = View/StoreListView/StoreListView.h; sourceTree = "<group>"; };
 		FA8D05451945886E00E91D7D /* StoreListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreListView.m; path = View/StoreListView/StoreListView.m; sourceTree = "<group>"; };
+		FAC559D219502AC600A68998 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = Model/UserModel.h; sourceTree = "<group>"; };
+		FAC559D319502AC600A68998 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = Model/UserModel.m; sourceTree = "<group>"; };
+		FAC559D71950344900A68998 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ViewController/Login/LoginViewController.h; sourceTree = "<group>"; };
+		FAC559D81950344900A68998 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ViewController/Login/LoginViewController.m; sourceTree = "<group>"; };
+		FAC559DA1950347400A68998 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = ViewController/SignUp/SignUpViewController.h; sourceTree = "<group>"; };
+		FAC559DB1950347400A68998 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = ViewController/SignUp/SignUpViewController.m; sourceTree = "<group>"; };
 		FAC99064193EC58E0009263E /* loadding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadding.png; sourceTree = "<group>"; };
 		FAC99069193ED2020009263E /* YZBIbeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZBIbeaconManager.h; path = BeaconManager/YZBIbeaconManager.h; sourceTree = "<group>"; };
 		FAC9906A193ED2020009263E /* YZBIbeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZBIbeaconManager.m; path = BeaconManager/YZBIbeaconManager.m; sourceTree = "<group>"; };
@@ -190,6 +205,7 @@
 		FAE74ABB193EB909004EE1F2 /* YZBMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZBMainViewController.m; path = ViewController/Main/YZBMainViewController.m; sourceTree = "<group>"; };
 		FAE74ABE193EB961004EE1F2 /* YZBMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZBMenuViewController.h; path = ViewController/Menu/YZBMenuViewController.h; sourceTree = "<group>"; };
 		FAE74ABF193EB961004EE1F2 /* YZBMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZBMenuViewController.m; path = ViewController/Menu/YZBMenuViewController.m; sourceTree = "<group>"; };
+		FAF47864194E8B3900560515 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FE52B192B6AA47BD9ACEA379 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF47865194E8B3900560515 /* CoreData.framework in Frameworks */,
 				FA8D04FF19414DA900E91D7D /* CoreBluetooth.framework in Frameworks */,
 				FA8D04FD19414D9600E91D7D /* CoreLocation.framework in Frameworks */,
 				849C0E08193CD0420005F83D /* CoreGraphics.framework in Frameworks */,
@@ -243,6 +260,7 @@
 		849C0E04193CD0420005F83D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAF47864194E8B3900560515 /* CoreData.framework */,
 				FA8D04FE19414DA900E91D7D /* CoreBluetooth.framework */,
 				FA8D04FC19414D9600E91D7D /* CoreLocation.framework */,
 				849C0E05193CD0420005F83D /* Foundation.framework */,
@@ -327,9 +345,28 @@
 			name = StoreListView;
 			sourceTree = "<group>";
 		};
+		FAC559D51950341500A68998 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FAC559D71950344900A68998 /* LoginViewController.h */,
+				FAC559D81950344900A68998 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		FAC559D61950342300A68998 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				FAC559DA1950347400A68998 /* SignUpViewController.h */,
+				FAC559DB1950347400A68998 /* SignUpViewController.m */,
+			);
+			name = SignUp;
+			sourceTree = "<group>";
+		};
 		FAC99063193EC5750009263E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA12C14519498F6700618C12 /* icon.png */,
 				8488C91619469D8B0067D6FA /* icon_about.png */,
 				FA3A3BB1194951EC009EAF33 /* swift.png */,
 				FA3A3BAD1949492C009EAF33 /* firstArrow.png */,
@@ -385,8 +422,12 @@
 		FAC99066193ED1AC0009263E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAC559D219502AC600A68998 /* UserModel.h */,
+				FAC559D319502AC600A68998 /* UserModel.m */,
 				FAC99073193F1F680009263E /* StoreModel.h */,
 				FAC99074193F1F680009263E /* StoreModel.m */,
+				FA12C1471949A76400618C12 /* SingleDataManager.h */,
+				FA12C1481949A76400618C12 /* SingleDataManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -422,6 +463,8 @@
 		FAE74AB3193EB3D3004EE1F2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FAC559D61950342300A68998 /* SignUp */,
+				FAC559D51950341500A68998 /* Login */,
 				FAE74AB4193EB3DC004EE1F2 /* Main */,
 				FAE74ABD193EB947004EE1F2 /* Menu */,
 				FAE74AB6193EB7CC004EE1F2 /* SideBar */,
@@ -569,6 +612,7 @@
 				FA8D05261943586E00E91D7D /* btn_down_pressed@2x.png in Resources */,
 				FA8D05281943586E00E91D7D /* btn_favorite_normal@2x.png in Resources */,
 				8488C93419469D8C0067D6FA /* msglist_face.png in Resources */,
+				FA12C14619498F6700618C12 /* icon.png in Resources */,
 				FA8D05361943586E00E91D7D /* main_circle@2x.png in Resources */,
 				849C0E10193CD0420005F83D /* InfoPlist.strings in Resources */,
 				8488C92C19469D8C0067D6FA /* icon_feedback.png in Resources */,
@@ -647,10 +691,14 @@
 				FAE74AB9193EB7E2004EE1F2 /* RWTSidebarViewController.m in Sources */,
 				FAC9906F193F195B0009263E /* YZBAPI.m in Sources */,
 				FAE74ABC193EB909004EE1F2 /* YZBMainViewController.m in Sources */,
+				FAC559D419502AC600A68998 /* UserModel.m in Sources */,
+				FAC559D91950344900A68998 /* LoginViewController.m in Sources */,
+				FAC559DC1950347400A68998 /* SignUpViewController.m in Sources */,
 				FAC99075193F1F680009263E /* StoreModel.m in Sources */,
 				849C0E1C193CD0420005F83D /* ViewController.m in Sources */,
 				FA8D050A1941600400E91D7D /* SQC_StringUtility.m in Sources */,
 				FA8D05091941600400E91D7D /* NSString_RegEx.m in Sources */,
+				FA12C1491949A76400618C12 /* SingleDataManager.m in Sources */,
 				FAE74AC0193EB961004EE1F2 /* YZBMenuViewController.m in Sources */,
 				849C0E16193CD0420005F83D /* AppDelegate.m in Sources */,
 				849C0E12193CD0420005F83D /* main.m in Sources */,

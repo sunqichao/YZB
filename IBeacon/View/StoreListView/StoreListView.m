@@ -65,6 +65,10 @@
     if (storeListArray) {
         _storeListArray = storeListArray;
         self.dataSource = storeListArray;
+    }else
+    {
+        
+        self.dataSource = nil;
     }
 }
 
@@ -72,6 +76,9 @@
 {
     if (dataSource) {
         _dataSource = dataSource;
+        [self.storeListTable reloadData];
+    }else
+    {
         [self.storeListTable reloadData];
     }
 }
@@ -108,8 +115,6 @@
     
 }
 
-
-
 #pragma mark - UITableview datasource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -141,13 +146,21 @@
     self.closeButton.hidden = NO;
     [self.view bringSubviewToFront:self.webView];
     [self.view bringSubviewToFront:self.closeButton];
+    
     StoreModel *model = _dataSource[indexPath.row];
     NSURL* url = [NSURL URLWithString:model.contentURL];//创建URL
     NSURLRequest* request = [NSURLRequest requestWithURL:url];//创建NSURLRequest
     [self.webView loadRequest:request];//加载
 
+    if (![StoreModel isSameHistoryData:self.storeListArray[indexPath.row]]) {
+        [self.historyArray addObject:self.storeListArray[indexPath.row]];
+        [SingleDataManager shareSingleDataManager].historyArray = self.historyArray;
+        
+    }
     
 }
+
+
 
 
 @end

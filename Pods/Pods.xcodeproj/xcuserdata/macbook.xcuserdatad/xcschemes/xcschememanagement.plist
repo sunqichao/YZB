@@ -6,83 +6,83 @@
 	<dict>
 		<key>Appirater.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Appirater.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-EGOTableViewPullRefresh.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-SVProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-pop.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09AABD122DD645A48B16D5A8</key>
+		<key>041BA9D08077492288DDD52A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>245C152273CA4D4BAAEDBB2A</key>
+		<key>118AE39A566841218869802D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>78E353F579BC40B3A95DBFE3</key>
+		<key>6511549CA7864E908C69374B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>790E6F3D508A4F6984D7CCF1</key>
+		<key>B954D2CB5B8C4CB887AD2F74</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96B39E9FB97A4BEAA7248B06</key>
+		<key>BF5E9679252F4E9F803F6438</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A67F80CBFE9246E2B380E168</key>
+		<key>D0E0BCEFB6464748970F675B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A6C8155B3147426DBEBCA861</key>
+		<key>EA52ADE1BCB443E48B5357A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD640DC3CCA74B14B0EC746C</key>
+		<key>FC38377B2BBB477E99594F21</key>
 		<dict>
 			<key>primary</key>
 			<true/>
