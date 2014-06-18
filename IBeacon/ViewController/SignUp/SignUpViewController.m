@@ -57,8 +57,19 @@
 }
 
 - (IBAction)submitForm:(id)sender {
+    NSString *phoneNumber = self.phoneNumber.text;
+    NSString *psd = self.keyword.text;
+    NSString *suerPsd = self.suerKeyword.text;
+    NSString *check = self.checkNumber.text;
     
-    
+    if ([psd isEqualToString:suerPsd]) {
+        [UserModel signUpWithPhoneNumber:phoneNumber checkMa:check password:psd block:^(NSArray *data, NSError *error) {
+            
+        }];
+    }else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"提示" message:@"两次输入密码不一样" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    }
     
 }
 

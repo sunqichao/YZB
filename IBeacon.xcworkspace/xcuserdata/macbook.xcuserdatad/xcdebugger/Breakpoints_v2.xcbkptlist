@@ -89,29 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IBeacon/BeaconManager/YZBIbeaconManager.m"
-            timestampString = "424260737.579771"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-createBeaconRegion"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "IBeacon/Model/UserModel.m"
-            timestampString = "424688082.882086"
+            timestampString = "424773726.816402"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "+signUpWithPhoneNumber:password:block:"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "+signUpWithPhoneNumber:checkMa:password:block:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

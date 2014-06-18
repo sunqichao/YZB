@@ -39,8 +39,10 @@
 
 
 + (void)signUpWithPhoneNumber:(NSString *)phone
+                      checkMa:(NSString *)checkMa
                      password:(NSString *)psd
                         block:(void(^)(NSArray *data,NSError *error))block
+
 {
     NSString *method = @"prodUserLogin";
     NSString *appKey = @"13";
@@ -49,9 +51,10 @@
     NSString *loginName = phone;
     NSString *clientVersion = @"1.0";
     NSString *loginPwd = psd;
+    NSString *checkMobileId = checkMa;
     NSString *sign = [YZBAPIHelper getSignWithKey:appKey];
     
-    NSString *path = [NSString stringWithFormat:@"elocal/api?sign=%@&method=%@&appKey=%@&serviceName=%@&version=%@&phone=%@&loginPwd=%@&clientVersion=%@",sign,method,appKey,serviceName,version,loginName,loginPwd,clientVersion];
+    NSString *path = [NSString stringWithFormat:@"elocal/api?sign=%@&method=%@&appKey=%@&serviceName=%@&version=%@&phone=%@&loginPwd=%@&clientVersion=%@&checkMobileId=%@",sign,method,appKey,serviceName,version,loginName,loginPwd,clientVersion,checkMa];
     
     [[YZBAPI shareYZBAPI] POST:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         

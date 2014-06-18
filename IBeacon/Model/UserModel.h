@@ -10,11 +10,18 @@
 
 @interface UserModel : NSObject
 
+
+
+
+
+
+
 + (void)getCheckNumberWithPhone:(NSString *)phone
                           block:(void(^)(NSArray *data,NSError *error))block;
 
 
 + (void)signUpWithPhoneNumber:(NSString *)phone
+                      checkMa:(NSString *)checkMa
                      password:(NSString *)psd
                         block:(void(^)(NSArray *data,NSError *error))block;
 
