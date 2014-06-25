@@ -9,6 +9,7 @@
 #import "StoreListView.h"
 #import "StoreListCell.h"
 #import "StoreModel.h"
+#import "MessageCardViewController.h"
 
 @interface StoreListView ()
 
@@ -142,6 +143,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
+     
     [self.view addSubview:self.webView];
     self.closeButton.hidden = NO;
     [self.view bringSubviewToFront:self.webView];
@@ -152,12 +155,21 @@
     NSURLRequest* request = [NSURLRequest requestWithURL:url];//创建NSURLRequest
     [self.webView loadRequest:request];//加载
 
-    if (![StoreModel isSameHistoryData:self.storeListArray[indexPath.row]]) {
-        [self.historyArray addObject:self.storeListArray[indexPath.row]];
-        [SingleDataManager shareSingleDataManager].historyArray = self.historyArray;
-        
-    }
+     
+    */
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    MessageCardViewController *card = [story instantiateViewControllerWithIdentifier:@"MessageCardViewController"];
+    card.cardType = MessageCardTypePay;
+    card.dataModel = _dataSource[indexPath.row];
+    [self presentViewController:card animated:YES completion:^{
+        if (![StoreModel isSameHistoryData:self.storeListArray[indexPath.row]]) {
+            [self.historyArray addObject:self.storeListArray[indexPath.row]];
+            [SingleDataManager shareSingleDataManager].historyArray = self.historyArray;
+            
+        }
+    }];
     
+     
 }
 
 

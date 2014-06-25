@@ -18,14 +18,28 @@
     if (!self) {
         return nil;
     }
-    self.sid = [attributes valueForKey:@"id"]?[attributes valueForKey:@"id"]:@"";
-    self.title = [attributes valueForKey:@"messTitle"]?[attributes valueForKey:@"messTitle"]:@"";
-    self.subtitle = [attributes valueForKey:@"messWord"]?[attributes valueForKey:@"messWord"]:@"";
-    self.contentURL = [attributes valueForKey:@"ibeaconUrl"]?[attributes valueForKey:@"ibeaconUrl"]:@"";
-    self.imageURL = [self getRightImageURL:[NSString stringWithFormat:@"%@",[attributes valueForKey:@"imgId"]?[attributes valueForKey:@"imgId"]:@""]];
+    self.sid = attributes[@"ibeaconId"]?attributes[@"ibeaconId"]:@"";
+    self.title = attributes[@"messTitle"]?attributes[@"messTitle"]:@"";
+    self.subtitle = attributes[@"messWord"]?attributes[@"messWord"]:@"";
+    self.content = attributes[@"messWord"]?attributes[@"messWord"]:@"";
+    self.contentURL = attributes[@"ibeaconUrl"]?attributes[@"ibeaconUrl"]:@"";
+    self.imageURL = [self getRightImageURL:[NSString stringWithFormat:@"%@",attributes[@"imgId"]?attributes[@"imgId"]:@""]];
     
     return self;
 }
+
+- (void)setNumbers:(NSDictionary *)dic
+{
+    self.APPROVESUM = [NSString stringWithFormat:@"%@",dic[@"APPROVESUM"]];
+    self.ISCOLLECT = [NSString stringWithFormat:@"%@",dic[@"ISCOLLECT"]];
+    self.COMMENTSUM = [NSString stringWithFormat:@"%@",dic[@"COMMENTSUM"]];
+    self.ISAPPROVE = [NSString stringWithFormat:@"%@",dic[@"ISAPPROVE"]];
+    self.SHARESUM = [NSString stringWithFormat:@"%@",dic[@"SHARESUM"]];
+    self.COLLECTSUM = [NSString stringWithFormat:@"%@",dic[@"COLLECTSUM"]];
+
+
+}
+
 
 - (NSString *)getRightImageURL:(NSString *)imageURL
 {
@@ -104,6 +118,39 @@
     }];
     
     
+    
+}
+
+
+- (void)getZanMessageInformationWithBlock:(void(^)(NSDictionary *data,NSError *error))block;
+{
+    NSString *method = @"getCountOperateTotal";
+    NSString *appKey = @"13";
+    NSString *serviceName = @"prodIbeaconOperateInfoApiService";
+    NSString *version = @"1.0";
+    NSString *phone = @"18516008978";
+    NSString *messId = @"3";
+//    NSString *ibeaconId = self.sid;
+    NSString *sign = [YZBAPIHelper getSignWithKey:appKey];
+    
+    NSString *path = [NSString stringWithFormat:@"elocal/api?sign=%@&method=%@&appKey=%@&serviceName=%@&version=%@&messId=%@&phone=%@",sign,method,appKey,serviceName,version,messId,phone];
+    
+    
+    [[YZBAPI shareYZBAPI] POST:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        
+        NSDictionary *postsFromResponse = (NSDictionary *)JSON;
+        id result = postsFromResponse[@"simpleObject"];
+        if ([result isKindOfClass:[NSDictionary class]]) {
+            block([NSDictionary dictionaryWithDictionary:result], nil);
+
+        }
+        
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+        if (block) {
+            block([NSDictionary dictionary], error);
+        }
+    }];
+
     
 }
 

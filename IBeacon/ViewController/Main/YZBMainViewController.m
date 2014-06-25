@@ -143,14 +143,22 @@
         NSArray *originData = self.storeListArray;
         NSArray *targetData = arr;
         NSMutableArray *results = @[].mutableCopy;
-        [originData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            StoreModel *origin = (StoreModel *)obj;
-            [targetData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                StoreModel *target = (StoreModel *)obj;
-                if (![origin.sid isEqual:target.sid]) {
-                    [results addObject:obj];
+        [targetData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            __block BOOL isSame = NO;
+            StoreModel *target = (StoreModel *)obj;
+
+            [originData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                StoreModel *origin = (StoreModel *)obj;
+                if ([target.sid isEqualToString:origin.sid]) {
+                    isSame = YES;
+                    *stop = YES;
                 }
             }];
+            
+            if (!isSame) {
+                [results addObject:obj];
+
+            }
         }];
         
         return results.copy;
@@ -252,12 +260,13 @@ double angle = 0.0;
                 }];
             }
             
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _bigNumber.text = number;
+                _searchTitle.hidden = YES;
+                _clickToSeeButton.hidden = NO;
+                _numberOfMessage.hidden = NO;
+            });
             
-            _bigNumber.text = number;
-            _searchTitle.hidden = YES;
-            _clickToSeeButton.hidden = NO;
-            
-            _numberOfMessage.hidden = NO;
         }else
         {
             _bigNumber.text = @"0";

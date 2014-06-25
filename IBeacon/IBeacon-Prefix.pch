@@ -15,7 +15,12 @@
 #define kScreenWidth    [[UIScreen mainScreen] bounds].size.width
 
 
-
+typedef NS_ENUM(NSInteger, MessageCardType) {
+    //以下是枚举成员
+    MessageCardTypeProduct = 0,
+    MessageCardTypeBusness = 1,
+    MessageCardTypePay = 2,
+};
 
 
 #ifdef __OBJC__

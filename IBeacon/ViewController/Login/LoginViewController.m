@@ -10,6 +10,13 @@
 
 @interface LoginViewController ()
 
+
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+
+@property (weak, nonatomic) IBOutlet UITextField *keyWord;
+
+
+
 @end
 
 @implementation LoginViewController
@@ -35,15 +42,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)dismissKeyword:(id)sender {
+    [self.phoneNumber resignFirstResponder];
+    [self.keyWord resignFirstResponder];
+    
 }
-*/
+
+- (IBAction)dismissController:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (IBAction)login:(id)sender {
+    NSString *name = self.phoneNumber.text;
+    NSString *keyword = self.keyWord.text;
+    [UserModel loginWithUserName:name password:keyword block:^(NSArray *data, NSError *error) {
+        
+    }];
+    
+}
+
+
+- (IBAction)forgetKeyword:(id)sender {
+    
+    
+    
+}
+
 
 @end

@@ -40,12 +40,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)clear
+{
+    [self.phoneNumber resignFirstResponder];
+    [self.keyword resignFirstResponder];
+    [self.suerKeyword resignFirstResponder];
+    [self.checkNumber resignFirstResponder];
+}
+
+- (IBAction)clearKeyboard:(id)sender {
+    [self clear];
+    
+}
+
 
 - (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
-
 
 
 - (IBAction)getCheackNumber:(id)sender {
@@ -57,6 +69,8 @@
 }
 
 - (IBAction)submitForm:(id)sender {
+    [self clear];
+
     NSString *phoneNumber = self.phoneNumber.text;
     NSString *psd = self.keyword.text;
     NSString *suerPsd = self.suerKeyword.text;
