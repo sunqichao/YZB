@@ -69,10 +69,22 @@
     }else if(self.cardType==MessageCardTypePay)
     {
         [self setUpPayView];
+        
+    }else if(self.cardType==MessageCardTypeOutsideURL)
+    {
+        [self setUpOutSideURL];
     }
         
     [self.view bringSubviewToFront:self.bottomView];
 
+    [self addAlertViewNotification];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    [self.bottomView setUpNumber];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,8 +115,14 @@
     self.detailView = [MessageCardDetailView getMessageCardDetailView];
     self.detailView.frame = CGRectMake(0, self.midView.frame.origin.y, self.detailView.frame.size.width, self.detailView.frame.size.height);
     self.detailView.hidden = YES;
+    [self.detailView.dismissButton addTarget:self action:@selector(swipeDown:) forControlEvents:UIControlEventTouchUpInside];
     [self.detailView setData:self.dataModel];
     [self.view addSubview:self.detailView];
+    
+    self.alertView = [AlertView getAlertView];
+    self.alertView.center = CGPointMake(kScreenWidth/2, kScreenHeight/2);
+    self.alertView.hidden = YES;
+    [self.view addSubview:self.alertView];
     
     UISwipeGestureRecognizer *gestureUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(appearDetailView:)];
     [gestureUp setDirection:UISwipeGestureRecognizerDirectionUp];
@@ -113,6 +131,12 @@
     UISwipeGestureRecognizer *gestureDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeDown:)];
     [gestureDown setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:gestureDown];
+    
+    [self.view addSubview:self.closeImageView];
+    [self.view addSubview:self.closeButton];
+    self.closeImageView.frame = CGRectMake(self.closeImageView.frame.origin.x,40, self.closeImageView.frame.size.width, self.closeImageView.frame.size.height);
+    [self.view bringSubviewToFront:self.closeImageView];
+    [self.view bringSubviewToFront:self.closeButton];
 }
 
 - (void)appearDetailView:(id)sender
@@ -123,12 +147,14 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.detailView.frame = CGRectMake(0, 20, self.detailView.frame.size.width, self.detailView.frame.size.height);
     } completion:^(BOOL finished) {
+
+        
         
     }];
     
 }
 
-- (void)swipeDown:(UISwipeGestureRecognizer *)downGesture
+- (void)swipeDown:(id)downGesture
 {
     
     [UIView animateWithDuration:0.5 animations:^{
@@ -140,6 +166,29 @@
 
     }];
     
+}
+
+- (void)addAlertViewNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"appearAlertView" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSDictionary *dic = [note userInfo];
+        if (![dic[@"title"] isEqualToString:@""]) {
+            self.alertView.title.hidden = NO;
+            self.alertView.title.text = dic[@"title"];
+
+        }
+        self.alertView.backImage.image = [UIImage imageNamed:dic[@"backImage"]];
+        self.alertView.hidden = NO;
+        [self.view bringSubviewToFront:self.alertView];
+        [self performSelector:@selector(hideAlertView) withObject:nil afterDelay:1.5f];
+    }];
+    
+}
+
+- (void)hideAlertView
+{
+    self.alertView.hidden = YES;
+    self.alertView.title.hidden = YES;
 }
 
 #pragma mark - 初始化商家消息卡
@@ -159,6 +208,10 @@
     [self.payView.submitButton addTarget:self action:@selector(submitPay:) forControlEvents:UIControlEventTouchUpInside];
     self.payView.numberTextfield.delegate = self.payView;
     self.payView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    
+    self.payView.titleLabel.text = self.title;
+    self.payView.shouKuanFang.text = self.shouKuanFang;
+    self.payView.numberTextfield.text = self.price;
     [self.view addSubview:self.payView];
 }
 
@@ -175,8 +228,15 @@
 }
 
 
+#pragma mark - 初始化外部URL页面
 
-
+- (void)setUpOutSideURL
+{
+    self.webView = [MessageWebView getMessageWebView];
+    [self.view addSubview:self.webView];
+    
+    
+}
 
 
 

@@ -159,7 +159,9 @@
     */
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     MessageCardViewController *card = [story instantiateViewControllerWithIdentifier:@"MessageCardViewController"];
-    card.cardType = MessageCardTypePay;
+    card.cardType = MessageCardTypeProduct;
+//    card.cardType = [_dataSource[indexPath.row][@"messType"] intValue];
+
     card.dataModel = _dataSource[indexPath.row];
     [self presentViewController:card animated:YES completion:^{
         if (![StoreModel isSameHistoryData:self.storeListArray[indexPath.row]]) {

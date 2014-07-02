@@ -10,6 +10,11 @@
 
 @interface MessageCardPayView : UIView<UITextFieldDelegate>
 
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *shouKuanFang;
+
 @property (assign, nonatomic) BOOL isZhiFuBao;
 
 @property (weak, nonatomic) IBOutlet UITextField *numberTextfield;

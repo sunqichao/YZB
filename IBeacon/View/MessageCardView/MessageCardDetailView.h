@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollview;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *dismissButton;
+
 - (void)setData:(StoreModel *)data;
 
 

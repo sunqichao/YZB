@@ -55,7 +55,38 @@
 + (void)getStoreInformationWithId:(id)sid block:(void(^)(NSArray *data,NSError *error))block;
 
 
+/**
+ *  获取赞，评论，收藏，分享数量
+ *
+ *  @param block
+ */
 - (void)getZanMessageInformationWithBlock:(void(^)(NSDictionary *data,NSError *error))block;
 
+/**
+ *  获取评论列表 根据page number
+ *  pagenumber  从1开始
+ *  @return
+ */
+
+- (void)getCommentArrayWithPage:(int)page block:(void(^)(NSArray *data,NSError *error))block;
+
+/**
+ *  点赞，或收藏，评论，分享
+ *
+ *  @param type    操作类型
+ *  @param comment 如果是评论则需要有评论内容
+ *  @param block
+ */
+- (void)setZanMessageInformationWithType:(NSString *)type commentWord:(NSString *)comment block:(void(^)(NSDictionary *data,NSError *error))block;
+
+/**
+ *  取消赞
+ */
+- (void)cancelZanWithBlock:(void(^)(NSDictionary *data,NSError *error))block;
+
+/**
+ *  取消收藏
+ */
+- (void)cancelCollectionWithBlock:(void(^)(NSDictionary *data,NSError *error))block;
 
 @end

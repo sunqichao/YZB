@@ -241,6 +241,29 @@ static YZBIbeaconManager *yzbManager = nil;
                inRegion:(CLBeaconRegion *)region {
     NSArray *filteredBeacons = [self filteredBeacons:beacons];
     
+    [filteredBeacons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        CLBeacon *curr = (CLBeacon *)obj;
+        if ([curr.major isEqualToNumber:[NSNumber numberWithInt:1]]) {
+            NSLog(@"%ld",(long)curr.rssi);
+        }
+        switch (curr.proximity) {
+            case CLProximityNear:
+//                NSLog(@"near");
+                break;
+            case CLProximityImmediate:
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"addStartPayInformations" object:nil userInfo:@{@"number":curr.major}];
+
+                break;
+            case CLProximityFar:
+//                NSLog(@"far");
+                break;
+            case CLProximityUnknown:
+            default:
+//                NSLog(@"unknow");
+                break;
+        }
+    }];
+    
     if (filteredBeacons.count == 0) {
         NSLog(@"No beacons found nearby.");
     } else {

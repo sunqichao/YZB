@@ -10,7 +10,7 @@
 #import "YZBIbeaconManager.h"
 #import "StoreModel.h"
 #import "StoreListView.h"
-
+#import "MessageCardViewController.h"
 
 
 @interface YZBMainViewController ()
@@ -90,6 +90,8 @@
      */
     [self addUpdateStoreInformations];
     
+    [self addStartPayInformations];
+    
     /**
      *  设置beacon的一些参数
      */
@@ -109,8 +111,15 @@
      *  初始化应该显示和隐藏的控件
      */
     self.numberOfMessage.hidden = YES;
-    self.clickToSeeButton.hidden = YES;
+    self.clickToSeeButton.hidden = NO;
     self.searchTitle.hidden = NO;
+
+    if (self.storeListArray.count>0) {
+        self.searchTitle.hidden = YES;
+        self.numberOfMessage.hidden = NO;
+
+    }
+
     self.arrowButton.hidden = YES;
 }
 
@@ -241,6 +250,53 @@ double angle = 0.0;
 
 }
 
+#pragma mark - 出发支付 通知
+
+- (void)addStartPayInformations
+{
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"addStartPayInformations" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        
+        NSDictionary *numberDic = [note userInfo];
+        
+        NSString *number = [NSString stringWithFormat:@"%@",numberDic[@"number"]];
+        
+        
+        
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        MessageCardViewController *card = [story instantiateViewControllerWithIdentifier:@"MessageCardViewController"];
+        card.cardType = MessageCardTypePay;
+        if ([number isEqualToString:@"2"]) {
+            card.title = @"15元套餐";
+            card.shouKuanFang = @"电信园区食堂";
+            card.price = @"15.00";
+        }else if ([number isEqualToString:@"1"])
+        {
+            card.title = @"10元套餐";
+            card.shouKuanFang = @"电信园区食堂";
+            card.price = @"10.00";
+
+        }else if ([number isEqualToString:@"3"])
+        {
+            card.title = @"5元套餐";
+            card.shouKuanFang = @"电信园区食堂";
+            card.price = @"5.00";
+
+        }else if ([number isEqualToString:@"4"])
+        {
+            card.title = @"20元套餐";
+            card.shouKuanFang = @"电信园区食堂";
+            card.price = @"20.00";
+
+        }
+        [self presentViewController:card animated:YES completion:^{
+            
+        }];
+        
+        
+    }];
+    
+}
+
 #pragma mark - 更新商家信息数量 通知
 
 - (void)addUpdateStoreInformations
@@ -251,15 +307,15 @@ double angle = 0.0;
         
         NSString *number = [NSString stringWithFormat:@"%@",numberDic[@"number"]];
         if (![number isEqual:@"0"]) {
+            self.clickToSeeButton.hidden = NO;
             NSMutableArray *majorId = [[YZBIbeaconManager shareBeaconManager] majorArray];
             if (majorId) {
                 [majorId enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    NSNumber *number = obj;
-                    [self getStoreDataWithID:[NSString stringWithFormat:@"%@",number]];
+                    NSNumber *numberID = obj;
+                    [self getStoreDataWithID:[NSString stringWithFormat:@"%@",numberID]];
                     
                 }];
             }
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 _bigNumber.text = number;
                 _searchTitle.hidden = YES;

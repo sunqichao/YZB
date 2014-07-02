@@ -263,6 +263,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="7jP-rs-WTc" id="LPg-cC-0bd"/>
+                        <outlet property="closeImageView" destination="lcP-LJ-IEZ" id="4Tu-ss-sW6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ah-lT-fxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,7 +307,7 @@
                                         <rect key="frame" x="107" y="45" width="107" height="107"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tony" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cSs-VD-QNg">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cSs-VD-QNg">
                                         <rect key="frame" x="0.0" y="165" width="270" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -465,9 +469,9 @@
                                         <color key="backgroundColor" red="0.25882352941176467" green="0.25098039215686274" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w1i-1Z-foy">
-                                        <rect key="frame" x="20" y="177" width="75" height="35"/>
+                                        <rect key="frame" x="11" y="172" width="93" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="登录">
+                                        <state key="normal" backgroundImage="login.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -475,9 +479,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H1Y-BI-IIZ">
-                                        <rect key="frame" x="167" y="176" width="83" height="36"/>
+                                        <rect key="frame" x="157" y="172" width="93" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="注册">
+                                        <state key="normal" backgroundImage="register.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -494,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nI1-ex-BTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858" y="536"/>
+            <point key="canvasLocation" x="764" y="467"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="gMr-lr-wgD">
@@ -817,11 +821,13 @@
         <image name="icon_update.png" width="25" height="25"/>
         <image name="list_bg_1.png" width="308" height="89"/>
         <image name="list_bg_2.png" width="305" height="176"/>
+        <image name="login.png" width="93" height="44"/>
         <image name="main_background.png" width="320" height="548"/>
         <image name="main_circle.png" width="139" height="139"/>
         <image name="msglist_tab1.png" width="320" height="44"/>
         <image name="msglist_tab_arrow.png" width="22" height="12"/>
         <image name="photo_mask.png" width="107" height="107"/>
+        <image name="register.png" width="93" height="44"/>
         <image name="revolve.png" width="140" height="140"/>
         <image name="swift.png" width="148" height="145"/>
         <image name="title_line.png" width="304" height="1"/>

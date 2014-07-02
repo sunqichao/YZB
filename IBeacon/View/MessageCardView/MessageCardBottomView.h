@@ -11,7 +11,23 @@
 
 @interface MessageCardBottomView : UIView
 
+
+@property (weak, nonatomic) IBOutlet UILabel *zanLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *collectionLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *shareLabel;
+
+@property (assign, nonatomic) BOOL isZan;
+
+@property (assign, nonatomic) BOOL isCollection;
+
 @property (weak, nonatomic) StoreModel *dataModel;
+
+
+- (void)setUpNumber;
 
 + (MessageCardBottomView *)getMessageCardBottomView;
 

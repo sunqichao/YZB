@@ -121,6 +121,37 @@
     
 }
 
+- (void)getCommentArrayWithPage:(int)page block:(void(^)(NSArray *data,NSError *error))block
+{
+    NSString *method = @"selectIbeaconCommentList";
+    NSString *appKey = @"13";
+    NSString *serviceName = @"prodIbeaconOperateInfoApiService";
+    NSString *version = @"1.0";
+    NSString *messId = @"3";
+    int pageIndex = page;
+    NSString *pageSize = @"20";
+    //    NSString *ibeaconId = self.sid;
+    NSString *sign = [YZBAPIHelper getSignWithKey:appKey];
+    
+    NSString *path = [NSString stringWithFormat:@"elocal/api?sign=%@&method=%@&appKey=%@&serviceName=%@&version=%@&messId=%@&pageSize=%@&pageIndex=%d",sign,method,appKey,serviceName,version,messId,pageSize,pageIndex];
+    
+    
+    [[YZBAPI shareYZBAPI] POST:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        
+        NSDictionary *postsFromResponse = (NSDictionary *)JSON;
+        id result = postsFromResponse[@"simpleObject"];
+        if ([result isKindOfClass:[NSDictionary class]]) {
+            block([NSDictionary dictionaryWithDictionary:result], nil);
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+        if (block) {
+            block([NSDictionary dictionary], error);
+        }
+    }];
+
+}
 
 - (void)getZanMessageInformationWithBlock:(void(^)(NSDictionary *data,NSError *error))block;
 {
@@ -153,6 +184,107 @@
 
     
 }
+
+- (void)setZanMessageInformationWithType:(NSString *)type commentWord:(NSString *)comment block:(void(^)(NSDictionary *data,NSError *error))block
+{
+    NSString *method = @"addProdIbeaconOperateInfo";
+    NSString *appKey = @"13";
+    NSString *serviceName = @"prodIbeaconOperateInfoApiService";
+    NSString *version = @"1.0";
+    NSString *phone = @"18516008978";
+    NSString *messId = @"3";
+    NSString *operateType = type;
+    NSString *commentWord = comment;
+    //    NSString *ibeaconId = self.sid;
+    NSString *sign = [YZBAPIHelper getSignWithKey:appKey];
+    
+    NSString *path = [NSString stringWithFormat:@"elocal/api?sign=%@&method=%@&appKey=%@&serviceName=%@&version=%@&messId=%@&phone=%@&operateType=%@&commentWord=%@",sign,method,appKey,serviceName,version,messId,phone,operateType,commentWord];
+    
+    
+    [[YZBAPI shareYZBAPI] POST:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        
+        NSDictionary *postsFromResponse = (NSDictionary *)JSON;
+        id result = postsFromResponse[@"simpleObject"];
+        block(result, nil);
+
+        
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+        if (block) {
+            block([NSDictionary dictionary], error);
+        }
+    }];
+    
+    
+}
+
+
+- (void)cancelZanWithBlock:(void(^)(NSDictionary *data,NSError *error))block
+{
+    NSString *method = @"cancelProdIbeaconOperateInfo";
+    NSString *appKey = @"13";
+    NSString *serviceName = @"prodIbeaconOperateInfoApiService";
+    NSString *version = @"1.0";
+    NSString *phone = @"18516008978";
+    NSString *messId = @"3";
+    NSString *operateType = @"1";
+    NSString *commentWord = @"";
+    //    NSString *ibeaconId = self.sid;
+    NSString *sign = [YZBAPIHelper getSignWithKey:appKey];
+    
+    NSString *path = [NSString stringWithFormat:@"elocal/api?sign=%@&method=%@&appKey=%@&serviceName=%@&version=%@&messId=%@&phone=%@&operateType=%@&commentWord=%@",sign,method,appKey,serviceName,version,messId,phone,operateType,commentWord];
+    
+    
+    [[YZBAPI shareYZBAPI] POST:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        
+        NSDictionary *postsFromResponse = (NSDictionary *)JSON;
+        id result = postsFromResponse[@"simpleObject"];
+        block(result,nil);
+        
+        
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+        block(nil,error);
+
+        
+    }];
+
+}
+
+
+- (void)cancelCollectionWithBlock:(void(^)(NSDictionary *data,NSError *error))block
+{
+    NSString *method = @"cancelProdIbeaconOperateInfo";
+    NSString *appKey = @"13";
+    NSString *serviceName = @"prodIbeaconOperateInfoApiService";
+    NSString *version = @"1.0";
+    NSString *phone = @"18516008978";
+    NSString *messId = @"3";
+    NSString *operateType = @"2";
+    NSString *commentWord = @"";
+    //    NSString *ibeaconId = self.sid;
+    NSString *sign = [YZBAPIHelper getSignWithKey:appKey];
+    
+    NSString *path = [NSString stringWithFormat:@"elocal/api?sign=%@&method=%@&appKey=%@&serviceName=%@&version=%@&messId=%@&phone=%@&operateType=%@&commentWord=%@",sign,method,appKey,serviceName,version,messId,phone,operateType,commentWord];
+    
+    
+    [[YZBAPI shareYZBAPI] POST:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        
+        NSDictionary *postsFromResponse = (NSDictionary *)JSON;
+        id result = postsFromResponse[@"simpleObject"];
+        block(result,nil);
+
+        
+        
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+        block(nil,error);
+
+        
+    }];
+}
+
+
+
+
+
 
 
 

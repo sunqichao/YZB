@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="注册" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asY-hm-hMx">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asY-hm-hMx">
                     <rect key="frame" x="120" y="30" width="68" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -29,23 +29,23 @@
                     <rect key="frame" x="0.0" y="62" width="320" height="506"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIm-0B-nhf">
-                            <rect key="frame" x="10" y="15" width="44" height="44"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="bIm-0B-nhf">
+                            <rect key="frame" x="10" y="15" width="40" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="msglist_face.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZEk-o7-LNZ">
-                            <rect key="frame" x="12" y="17" width="40" height="40"/>
+                            <rect key="frame" x="10" y="14" width="40" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dz0-51-T9o">
-                            <rect key="frame" x="58" y="16" width="42" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dz0-51-T9o">
+                            <rect key="frame" x="58" y="23" width="222" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7k-zm-pkI">
-                            <rect key="frame" x="58" y="35" width="42" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7k-zm-pkI">
+                            <rect key="frame" x="58" y="35" width="228" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="highlightedColor"/>
@@ -134,7 +134,9 @@
             <connections>
                 <outlet property="backButton" destination="F3c-VX-K5G" id="0M8-2r-4Dy"/>
                 <outlet property="numberTextfield" destination="BtK-KJ-OTY" id="uJs-yA-ksm"/>
+                <outlet property="shouKuanFang" destination="oQk-ck-V5X" id="Bd6-QO-Uh8"/>
                 <outlet property="submitButton" destination="BfK-YD-ChL" id="zdS-Vz-ESH"/>
+                <outlet property="titleLabel" destination="dz0-51-T9o" id="n9v-3G-mSM"/>
                 <outlet property="weixinImageView" destination="7na-9T-BeO" id="m29-Fb-KJS"/>
                 <outlet property="zhifubaoImageView" destination="xmG-70-Iyn" id="o4E-zb-h12"/>
             </connections>
@@ -150,6 +152,7 @@
         <image name="bg_tatle.png" width="320" height="44"/>
         <image name="btn_payment.png" width="205" height="43"/>
         <image name="choose.png" width="22" height="22"/>
+        <image name="icon.png" width="144" height="144"/>
         <image name="icon_back.png" width="15" height="22"/>
         <image name="mode_payment.png" width="300" height="130"/>
         <image name="msglist_face.png" width="38" height="38"/>
