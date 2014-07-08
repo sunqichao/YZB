@@ -48,18 +48,6 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 3
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
-// Appirater
-#define COCOAPODS_POD_AVAILABLE_Appirater
-#define COCOAPODS_VERSION_MAJOR_Appirater 2
-#define COCOAPODS_VERSION_MINOR_Appirater 0
-#define COCOAPODS_VERSION_PATCH_Appirater 2
-
-// EGOTableViewPullRefresh
-#define COCOAPODS_POD_AVAILABLE_EGOTableViewPullRefresh
-#define COCOAPODS_VERSION_MAJOR_EGOTableViewPullRefresh 0
-#define COCOAPODS_VERSION_MINOR_EGOTableViewPullRefresh 1
-#define COCOAPODS_VERSION_PATCH_EGOTableViewPullRefresh 0
-
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3
@@ -72,15 +60,15 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 6
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 0
 
-// SVProgressHUD
-#define COCOAPODS_POD_AVAILABLE_SVProgressHUD
-#define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
-#define COCOAPODS_VERSION_MINOR_SVProgressHUD 0
-#define COCOAPODS_VERSION_PATCH_SVProgressHUD 0
+// iCarousel
+#define COCOAPODS_POD_AVAILABLE_iCarousel
+#define COCOAPODS_VERSION_MAJOR_iCarousel 1
+#define COCOAPODS_VERSION_MINOR_iCarousel 7
+#define COCOAPODS_VERSION_PATCH_iCarousel 6
 
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop
 #define COCOAPODS_VERSION_MAJOR_pop 1
 #define COCOAPODS_VERSION_MINOR_pop 0
-#define COCOAPODS_VERSION_PATCH_pop 5
+#define COCOAPODS_VERSION_PATCH_pop 6
 

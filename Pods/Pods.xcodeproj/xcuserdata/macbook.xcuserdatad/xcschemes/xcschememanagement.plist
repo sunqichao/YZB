@@ -4,22 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Appirater.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Appirater.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-EGOTableViewPullRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -29,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SVProgressHUD.xcscheme</key>
+		<key>Pods-iCarousel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>041BA9D08077492288DDD52A</key>
+		<key>40E07D886884472BB6581615</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>118AE39A566841218869802D</key>
+		<key>426BC6EBD572428793D43BC2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6511549CA7864E908C69374B</key>
+		<key>7F27D23F1B274022AF59873B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B954D2CB5B8C4CB887AD2F74</key>
+		<key>A306BDB962624AEF81C769C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF5E9679252F4E9F803F6438</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D0E0BCEFB6464748970F675B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA52ADE1BCB443E48B5357A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC38377B2BBB477E99594F21</key>
+		<key>EF36F33DDC6245DDA6B242DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

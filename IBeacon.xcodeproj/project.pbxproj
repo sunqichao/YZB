@@ -44,9 +44,24 @@
 		849C0E31193CD0420005F83D /* IBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C0E30193CD0420005F83D /* IBeaconTests.m */; };
 		FA12C14619498F6700618C12 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA12C14519498F6700618C12 /* icon.png */; };
 		FA12C1491949A76400618C12 /* SingleDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA12C1481949A76400618C12 /* SingleDataManager.m */; };
+		FA296B33196A799E0004EA82 /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA296B31196A799E0004EA82 /* MessageView.m */; };
+		FA296B34196A799E0004EA82 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA296B32196A799E0004EA82 /* MessageView.xib */; };
 		FA3A3BAF1949492C009EAF33 /* firstArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3A3BAD1949492C009EAF33 /* firstArrow.png */; };
 		FA3A3BB01949492C009EAF33 /* secondArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3A3BAE1949492C009EAF33 /* secondArrow.png */; };
 		FA3A3BB2194951EC009EAF33 /* swift.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3A3BB1194951EC009EAF33 /* swift.png */; };
+		FA3E448D196B8FA300BC16F8 /* cardBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3E448C196B8FA300BC16F8 /* cardBackground.png */; };
+		FA3E4490196B99E600BC16F8 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E448F196B99E600BC16F8 /* CardView.m */; };
+		FA3E4492196B99F600BC16F8 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E4491196B99F600BC16F8 /* CardView.xib */; };
+		FA3E4494196B9B7C00BC16F8 /* tempCardImage.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3E4493196B9B7C00BC16F8 /* tempCardImage.png */; };
+		FA3E4497196BEC0E00BC16F8 /* NewBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E4496196BEC0E00BC16F8 /* NewBottomView.m */; };
+		FA3E4499196BECF600BC16F8 /* NewBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E4498196BECF600BC16F8 /* NewBottomView.xib */; };
+		FA5618CD196A35D900EE06C4 /* NewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5618CB196A35D800EE06C4 /* NewBackground.png */; };
+		FA5618CE196A35D900EE06C4 /* NewBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5618CC196A35D900EE06C4 /* NewBackground@2x.png */; };
+		FA5618D1196A370900EE06C4 /* NewMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5618D0196A370900EE06C4 /* NewMainViewController.m */; };
+		FA5618D4196A4CBE00EE06C4 /* historyIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5618D2196A4CBE00EE06C4 /* historyIcon.png */; };
+		FA5618D5196A4CBE00EE06C4 /* historyIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5618D3196A4CBE00EE06C4 /* historyIcon@2x.png */; };
+		FA5618D8196A4D3400EE06C4 /* collection.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5618D6196A4D3400EE06C4 /* collection.png */; };
+		FA5618D9196A4D3400EE06C4 /* collection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5618D7196A4D3400EE06C4 /* collection@2x.png */; };
 		FA7B276C1959253A00DF3EE5 /* bg_ payment.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7B275A1959253A00DF3EE5 /* bg_ payment.png */; };
 		FA7B276D1959253A00DF3EE5 /* bg_ payment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7B275B1959253A00DF3EE5 /* bg_ payment@2x.png */; };
 		FA7B276E1959253A00DF3EE5 /* btn_payment.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7B275C1959253A00DF3EE5 /* btn_payment.png */; };
@@ -182,7 +197,6 @@
 		FAFE83561952D4280087BAD5 /* talk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFE83361952D4280087BAD5 /* talk@2x.png */; };
 		FAFE83571952D4280087BAD5 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFE83371952D4280087BAD5 /* up.png */; };
 		FAFE83581952D4280087BAD5 /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFE83381952D4280087BAD5 /* up@2x.png */; };
-		FAFE835A1952E3580087BAD5 /* IMG_1490.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FAFE83591952E3580087BAD5 /* IMG_1490.JPG */; };
 		FAFE835C1952E66E0087BAD5 /* IMG_1876.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FAFE835B1952E66E0087BAD5 /* IMG_1876.JPG */; };
 		FAFE83601952E8D70087BAD5 /* MessageCardBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFE835F1952E8D70087BAD5 /* MessageCardBottomView.m */; };
 		FAFE83621952E9AE0087BAD5 /* MessageCardBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFE83611952E9AE0087BAD5 /* MessageCardBottomView.xib */; };
@@ -245,9 +259,28 @@
 		FA12C14519498F6700618C12 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		FA12C1471949A76400618C12 /* SingleDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleDataManager.h; path = Model/SingleDataManager.h; sourceTree = "<group>"; };
 		FA12C1481949A76400618C12 /* SingleDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleDataManager.m; path = Model/SingleDataManager.m; sourceTree = "<group>"; };
+		FA296B30196A799E0004EA82 /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageView.h; path = View/NewMessageView/MessageView.h; sourceTree = "<group>"; };
+		FA296B31196A799E0004EA82 /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageView.m; path = View/NewMessageView/MessageView.m; sourceTree = "<group>"; };
+		FA296B32196A799E0004EA82 /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageView.xib; path = View/NewMessageView/MessageView.xib; sourceTree = "<group>"; };
 		FA3A3BAD1949492C009EAF33 /* firstArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstArrow.png; sourceTree = "<group>"; };
 		FA3A3BAE1949492C009EAF33 /* secondArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondArrow.png; sourceTree = "<group>"; };
 		FA3A3BB1194951EC009EAF33 /* swift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swift.png; sourceTree = "<group>"; };
+		FA3E448C196B8FA300BC16F8 /* cardBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardBackground.png; sourceTree = "<group>"; };
+		FA3E448E196B99E600BC16F8 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardView.h; path = View/NewMessageView/CardView.h; sourceTree = "<group>"; };
+		FA3E448F196B99E600BC16F8 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardView.m; path = View/NewMessageView/CardView.m; sourceTree = "<group>"; };
+		FA3E4491196B99F600BC16F8 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		FA3E4493196B9B7C00BC16F8 /* tempCardImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tempCardImage.png; sourceTree = "<group>"; };
+		FA3E4495196BEC0E00BC16F8 /* NewBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewBottomView.h; path = View/NewMessageView/NewBottomView.h; sourceTree = "<group>"; };
+		FA3E4496196BEC0E00BC16F8 /* NewBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewBottomView.m; path = View/NewMessageView/NewBottomView.m; sourceTree = "<group>"; };
+		FA3E4498196BECF600BC16F8 /* NewBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBottomView.xib; sourceTree = "<group>"; };
+		FA5618CB196A35D800EE06C4 /* NewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewBackground.png; sourceTree = "<group>"; };
+		FA5618CC196A35D900EE06C4 /* NewBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NewBackground@2x.png"; sourceTree = "<group>"; };
+		FA5618CF196A370900EE06C4 /* NewMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewMainViewController.h; path = ViewController/Main/NewMainViewController.h; sourceTree = "<group>"; };
+		FA5618D0196A370900EE06C4 /* NewMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewMainViewController.m; path = ViewController/Main/NewMainViewController.m; sourceTree = "<group>"; };
+		FA5618D2196A4CBE00EE06C4 /* historyIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = historyIcon.png; sourceTree = "<group>"; };
+		FA5618D3196A4CBE00EE06C4 /* historyIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historyIcon@2x.png"; sourceTree = "<group>"; };
+		FA5618D6196A4D3400EE06C4 /* collection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection.png; sourceTree = "<group>"; };
+		FA5618D7196A4D3400EE06C4 /* collection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collection@2x.png"; sourceTree = "<group>"; };
 		FA7B275A1959253A00DF3EE5 /* bg_ payment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_ payment.png"; sourceTree = "<group>"; };
 		FA7B275B1959253A00DF3EE5 /* bg_ payment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_ payment@2x.png"; sourceTree = "<group>"; };
 		FA7B275C1959253A00DF3EE5 /* btn_payment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_payment.png; sourceTree = "<group>"; };
@@ -403,7 +436,6 @@
 		FAFE83361952D4280087BAD5 /* talk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "talk@2x.png"; sourceTree = "<group>"; };
 		FAFE83371952D4280087BAD5 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		FAFE83381952D4280087BAD5 /* up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up@2x.png"; sourceTree = "<group>"; };
-		FAFE83591952E3580087BAD5 /* IMG_1490.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1490.JPG; sourceTree = "<group>"; };
 		FAFE835B1952E66E0087BAD5 /* IMG_1876.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1876.JPG; sourceTree = "<group>"; };
 		FAFE835E1952E8D70087BAD5 /* MessageCardBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageCardBottomView.h; path = View/MessageCardView/MessageCardBottomView.h; sourceTree = "<group>"; };
 		FAFE835F1952E8D70087BAD5 /* MessageCardBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageCardBottomView.m; path = View/MessageCardView/MessageCardBottomView.m; sourceTree = "<group>"; };
@@ -528,6 +560,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FA296B2F196A79720004EA82 /* NewMessageView */ = {
+			isa = PBXGroup;
+			children = (
+				FA296B30196A799E0004EA82 /* MessageView.h */,
+				FA296B31196A799E0004EA82 /* MessageView.m */,
+				FA296B32196A799E0004EA82 /* MessageView.xib */,
+				FA3E448E196B99E600BC16F8 /* CardView.h */,
+				FA3E448F196B99E600BC16F8 /* CardView.m */,
+				FA3E4491196B99F600BC16F8 /* CardView.xib */,
+				FA3E4495196BEC0E00BC16F8 /* NewBottomView.h */,
+				FA3E4496196BEC0E00BC16F8 /* NewBottomView.m */,
+				FA3E4498196BECF600BC16F8 /* NewBottomView.xib */,
+			);
+			name = NewMessageView;
+			sourceTree = "<group>";
+		};
 		FA8D050119415FAB00E91D7D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,6 +620,14 @@
 		FAC99063193EC5750009263E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA3E448C196B8FA300BC16F8 /* cardBackground.png */,
+				FA3E4493196B9B7C00BC16F8 /* tempCardImage.png */,
+				FA5618D2196A4CBE00EE06C4 /* historyIcon.png */,
+				FA5618D6196A4D3400EE06C4 /* collection.png */,
+				FA5618D7196A4D3400EE06C4 /* collection@2x.png */,
+				FA5618D3196A4CBE00EE06C4 /* historyIcon@2x.png */,
+				FA5618CB196A35D800EE06C4 /* NewBackground.png */,
+				FA5618CC196A35D900EE06C4 /* NewBackground@2x.png */,
 				FA7B275A1959253A00DF3EE5 /* bg_ payment.png */,
 				FAC902461963AA8400E7ED87 /* Icon-60.png */,
 				FAC902471963AA8400E7ED87 /* Icon-60@2x.png */,
@@ -608,7 +664,6 @@
 				FA12C14519498F6700618C12 /* icon.png */,
 				FAFE83631952EB030087BAD5 /* CardBottomView.png */,
 				FAFE835B1952E66E0087BAD5 /* IMG_1876.JPG */,
-				FAFE83591952E3580087BAD5 /* IMG_1490.JPG */,
 				FAFE83191952D4280087BAD5 /* bg.png */,
 				FAFE831A1952D4280087BAD5 /* bg@2x.png */,
 				FAFE831B1952D4280087BAD5 /* bg1.png */,
@@ -726,6 +781,7 @@
 		FAC99067193ED1B30009263E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA296B2F196A79720004EA82 /* NewMessageView */,
 				FAEC813A19615BB500D2444F /* MessageWebView */,
 				FAFE835D1952E7B30087BAD5 /* MessageCardView */,
 				FA8D053B1945826300E91D7D /* StoreListView */,
@@ -771,6 +827,8 @@
 			children = (
 				FAE74ABA193EB909004EE1F2 /* YZBMainViewController.h */,
 				FAE74ABB193EB909004EE1F2 /* YZBMainViewController.m */,
+				FA5618CF196A370900EE06C4 /* NewMainViewController.h */,
+				FA5618D0196A370900EE06C4 /* NewMainViewController.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -924,12 +982,14 @@
 				FA7B27761959253A00DF3EE5 /* payment_information.png in Resources */,
 				8488C93019469D8C0067D6FA /* icon_setting.png in Resources */,
 				FAC9025F1963AA8400E7ED87 /* Icon-Spotlight-40.png in Resources */,
+				FA3E4499196BECF600BC16F8 /* NewBottomView.xib in Resources */,
 				FAFE83581952D4280087BAD5 /* up@2x.png in Resources */,
 				8488C92F19469D8C0067D6FA /* icon_logout@2x.png in Resources */,
 				FAFE83151952BC9B0087BAD5 /* 1.png in Resources */,
 				FA3A3BAF1949492C009EAF33 /* firstArrow.png in Resources */,
 				8488C93719469D8C0067D6FA /* msglist_tab_arrow@2x.png in Resources */,
 				8488C93919469D8C0067D6FA /* msglist_tab1@2x.png in Resources */,
+				FA296B34196A799E0004EA82 /* MessageView.xib in Resources */,
 				FAC902631963AA8400E7ED87 /* iTunesArtwork@2x in Resources */,
 				FA7B27751959253A00DF3EE5 /* mode_payment@2x.png in Resources */,
 				FAFE834F1952D4280087BAD5 /* link_hover.png in Resources */,
@@ -948,6 +1008,8 @@
 				FA3A3BB01949492C009EAF33 /* secondArrow.png in Resources */,
 				FA8D052A1943586E00E91D7D /* btn_favorite_pressed@2x.png in Resources */,
 				FAFE830819527B3D0087BAD5 /* list_bg_1@2x.png in Resources */,
+				FA5618CD196A35D900EE06C4 /* NewBackground.png in Resources */,
+				FA5618D5196A4CBE00EE06C4 /* historyIcon@2x.png in Resources */,
 				8488C93A19469D8C0067D6FA /* msglist_tab2.png in Resources */,
 				FAFE83541952D4280087BAD5 /* talk_hover@2x.png in Resources */,
 				FAFE833F1952D4280087BAD5 /* down.png in Resources */,
@@ -956,6 +1018,7 @@
 				FAFE833B1952D4280087BAD5 /* bg1.png in Resources */,
 				8488C93219469D8C0067D6FA /* icon_update.png in Resources */,
 				FA7B277B1959253A00DF3EE5 /* unchoose@2x.png in Resources */,
+				FA5618D4196A4CBE00EE06C4 /* historyIcon.png in Resources */,
 				FA8D052E1943586E00E91D7D /* btn_msglist_pressed@2x.png in Resources */,
 				FA7B27791959253A00DF3EE5 /* register@2x.png in Resources */,
 				FA8D052C1943586E00E91D7D /* btn_msglist_normal@2x.png in Resources */,
@@ -964,6 +1027,7 @@
 				FA8D05331943586E00E91D7D /* main_background.png in Resources */,
 				FAFE83551952D4280087BAD5 /* talk.png in Resources */,
 				849C0E1E193CD0420005F83D /* Images.xcassets in Resources */,
+				FA3E448D196B8FA300BC16F8 /* cardBackground.png in Resources */,
 				8488C93D19469D8C0067D6FA /* photo_mask@2x.png in Resources */,
 				FAC9025B1963AA8400E7ED87 /* Icon-Small-50.png in Resources */,
 				FA8D05271943586E00E91D7D /* btn_favorite_normal.png in Resources */,
@@ -972,7 +1036,6 @@
 				FAFE835C1952E66E0087BAD5 /* IMG_1876.JPG in Resources */,
 				FAFE830C19527B3D0087BAD5 /* title_line@2x.png in Resources */,
 				FA8D05231943586E00E91D7D /* btn_down_normal.png in Resources */,
-				FAFE835A1952E3580087BAD5 /* IMG_1490.JPG in Resources */,
 				8488C92D19469D8C0067D6FA /* icon_feedback@2x.png in Resources */,
 				FAD30AD61957F86C008A36FE /* MessageCardDetailView.xib in Resources */,
 				FA8D05241943586E00E91D7D /* btn_down_normal@2x.png in Resources */,
@@ -996,6 +1059,7 @@
 				849C0E10193CD0420005F83D /* InfoPlist.strings in Resources */,
 				FAFE830319527B3D0087BAD5 /* btn@2x.png in Resources */,
 				8488C92C19469D8C0067D6FA /* icon_feedback.png in Resources */,
+				FA3E4492196B99F600BC16F8 /* CardView.xib in Resources */,
 				FA7B27711959253A00DF3EE5 /* choose@2x.png in Resources */,
 				FAFE83161952BC9B0087BAD5 /* 1@2x.png in Resources */,
 				FAFE83621952E9AE0087BAD5 /* MessageCardBottomView.xib in Resources */,
@@ -1010,12 +1074,16 @@
 				FA8D05341943586E00E91D7D /* main_background@2x.png in Resources */,
 				849C0E19193CD0420005F83D /* Main.storyboard in Resources */,
 				FA7B277C1959253A00DF3EE5 /* userface_default.png in Resources */,
+				FA3E4494196B9B7C00BC16F8 /* tempCardImage.png in Resources */,
 				8488C92B19469D8C0067D6FA /* icon_about@2x.png in Resources */,
 				FA7B27731959253A00DF3EE5 /* login@2x.png in Resources */,
 				FA7B27781959253A00DF3EE5 /* register.png in Resources */,
+				FA5618D8196A4D3400EE06C4 /* collection.png in Resources */,
 				FA3A3BB2194951EC009EAF33 /* swift.png in Resources */,
 				FAFE83171952BC9B0087BAD5 /* hover.png in Resources */,
 				FAC9025E1963AA8400E7ED87 /* Icon-Small@2x.png in Resources */,
+				FA5618D9196A4D3400EE06C4 /* collection@2x.png in Resources */,
+				FA5618CE196A35D900EE06C4 /* NewBackground@2x.png in Resources */,
 				FA7B278219592A3400DF3EE5 /* MessageCardPayView.xib in Resources */,
 				FAFE83531952D4280087BAD5 /* talk_hover.png in Resources */,
 				FA7B276C1959253A00DF3EE5 /* bg_ payment.png in Resources */,
@@ -1117,7 +1185,10 @@
 				FAEC813D19615BEF00D2444F /* MessageWebView.m in Sources */,
 				FAC99078193F7AEA0009263E /* YZBAPIHelper.m in Sources */,
 				FAC9906B193ED2020009263E /* YZBIbeaconManager.m in Sources */,
+				FA296B33196A799E0004EA82 /* MessageView.m in Sources */,
 				FAE74AB9193EB7E2004EE1F2 /* RWTSidebarViewController.m in Sources */,
+				FA3E4497196BEC0E00BC16F8 /* NewBottomView.m in Sources */,
+				FA3E4490196B99E600BC16F8 /* CardView.m in Sources */,
 				FAC9906F193F195B0009263E /* YZBAPI.m in Sources */,
 				FAE74ABC193EB909004EE1F2 /* YZBMainViewController.m in Sources */,
 				FAC559D419502AC600A68998 /* UserModel.m in Sources */,
@@ -1129,6 +1200,7 @@
 				FA8D050A1941600400E91D7D /* SQC_StringUtility.m in Sources */,
 				FA8D05091941600400E91D7D /* NSString_RegEx.m in Sources */,
 				FAFE83601952E8D70087BAD5 /* MessageCardBottomView.m in Sources */,
+				FA5618D1196A370900EE06C4 /* NewMainViewController.m in Sources */,
 				FAFE83671952F2250087BAD5 /* MessageCardmidleView.m in Sources */,
 				FAFE83101952975D0087BAD5 /* MessageCardViewController.m in Sources */,
 				FA12C1491949A76400618C12 /* SingleDataManager.m in Sources */,

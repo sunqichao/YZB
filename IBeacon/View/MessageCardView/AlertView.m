@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
     }
     return self;
 }
@@ -29,8 +30,11 @@
 
 + (AlertView *)getAlertView
 {
+    
     NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"AlertView" owner:self options:nil];
     AlertView *alert = nibs[0];
+    [alert addSubview:alert.backImage];
+    [alert addSubview:alert.title];
     return alert;
 }
 

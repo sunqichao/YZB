@@ -59,7 +59,7 @@ typedef NS_ENUM(NSInteger, MessageCardType) {
     #import <Foundation/Foundation.h>
     #import "SingleDataManager.h"
     #import "UserModel.h"
-
+    #import "POP.h"
 
 
 #endif

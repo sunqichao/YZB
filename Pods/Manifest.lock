@@ -20,28 +20,22 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Appirater (2.0.2)
-  - EGOTableViewPullRefresh (0.1.0)
-  - pop (1.0.5)
+  - iCarousel (1.7.6)
+  - pop (1.0.6)
   - SDWebImage (3.6):
     - SDWebImage/Core
   - SDWebImage/Core (3.6)
-  - SVProgressHUD (1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - Appirater (~> 2.0.2)
-  - EGOTableViewPullRefresh (~> 0.1.0)
+  - iCarousel (~> 1.7.6)
   - pop (~> 1.0.2)
   - SDWebImage (~> 3.6)
-  - SVProgressHUD (~> 1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
-  Appirater: a5e00fb01d47a9a6acf4b2f22323b4ccf4f23fbb
-  EGOTableViewPullRefresh: 04bb7d115f660c91a036ebade5e6678c7ef26c59
-  pop: 75fa2b33934200a8a68abb449ac1726fcf7e43b9
+  iCarousel: c35a4e26b3c657847e523012b593e70ddbd84992
+  pop: e518794da38942c05255eb64b36d894e70cb4f00
   SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
-  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
 
 COCOAPODS: 0.33.1

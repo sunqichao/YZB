@@ -260,8 +260,9 @@ double angle = 0.0;
         
         NSString *number = [NSString stringWithFormat:@"%@",numberDic[@"number"]];
         
-        
-        
+        /**
+         *  设置现场支付的选项
+         */
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         MessageCardViewController *card = [story instantiateViewControllerWithIdentifier:@"MessageCardViewController"];
         card.cardType = MessageCardTypePay;
@@ -335,7 +336,6 @@ double angle = 0.0;
             [self performSelector:@selector(changeDisconnect) withObject:nil afterDelay:0.5];
 
         }
-        
         
     }];
     

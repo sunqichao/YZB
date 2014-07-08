@@ -120,8 +120,7 @@
     [self.view addSubview:self.detailView];
     
     self.alertView = [AlertView getAlertView];
-    self.alertView.center = CGPointMake(kScreenWidth/2, kScreenHeight/2);
-    self.alertView.hidden = YES;
+    self.alertView.frame = CGRectMake(kScreenWidth/2, kScreenHeight/2, 0, 0);
     [self.view addSubview:self.alertView];
     
     UISwipeGestureRecognizer *gestureUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(appearDetailView:)];
@@ -172,23 +171,39 @@
 {
     [[NSNotificationCenter defaultCenter] addObserverForName:@"appearAlertView" object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSDictionary *dic = [note userInfo];
+        self.alertView.title.hidden = YES;
+
         if (![dic[@"title"] isEqualToString:@""]) {
             self.alertView.title.hidden = NO;
             self.alertView.title.text = dic[@"title"];
 
         }
         self.alertView.backImage.image = [UIImage imageNamed:dic[@"backImage"]];
-        self.alertView.hidden = NO;
+        [self appearAlertView];
         [self.view bringSubviewToFront:self.alertView];
         [self performSelector:@selector(hideAlertView) withObject:nil afterDelay:1.5f];
     }];
     
 }
 
+- (void)appearAlertView
+{
+    POPSpringAnimation *appearAlertView = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+    appearAlertView.toValue = [NSValue valueWithCGSize:CGSizeMake(105,105)];
+    appearAlertView.springBounciness = 5.0;
+    appearAlertView.springSpeed = 20.0;
+    [self.alertView pop_addAnimation:appearAlertView forKey:@"appearAlertView"];
+    
+}
+
 - (void)hideAlertView
 {
-    self.alertView.hidden = YES;
-    self.alertView.title.hidden = YES;
+    POPSpringAnimation *hideAlertView = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+    hideAlertView.toValue = [NSValue valueWithCGSize:CGSizeMake(0,0)];
+    hideAlertView.springBounciness = 0.0;
+    hideAlertView.springSpeed = 20.0;
+    [self.alertView pop_addAnimation:hideAlertView forKey:@"hideAlertView"];
+    
 }
 
 #pragma mark - 初始化商家消息卡

@@ -10,12 +10,14 @@
 #import "YZBMainViewController.h"
 #import "YZBMenuViewController.h"
 #import "RWTSidebarViewController.h"
-
-@interface AppDelegate ()<YZBMainTapMenuButtonDelegate,YZBMeunViewControllerDelegate>
+#import "NewMainViewController.h"
+@interface AppDelegate ()<YZBMainTapMenuButtonDelegate,YZBMeunViewControllerDelegate,NewMainButtonDelegate>
 
 @property (nonatomic, strong) RWTSidebarViewController *sideBarVC;
 
-@property (nonatomic, strong) YZBMainViewController *mainVC;
+//@property (nonatomic, strong) YZBMainViewController *mainVC;
+@property (nonatomic, strong) NewMainViewController *mainVC;
+
 @property (nonatomic, strong) YZBMenuViewController *menuVC;
 
 @property (nonatomic, strong) UINavigationController *mainNav;
@@ -34,14 +36,14 @@
 //        
 //    }];
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
     /**
      *  主界面
      */
-    self.mainVC = [storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+    self.mainVC = [storyboard instantiateViewControllerWithIdentifier:@"NewMainViewController"];
     self.mainVC.delegate = self;
     
     /**
@@ -59,14 +61,25 @@
     self.window.rootViewController = self.sideBarVC;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES; //返回NO表示要显示，返回YES将hiden
+}
 
 #pragma mark - main delegate
 
 - (void)YZBMainViewDidTapMenuButton:(YZBMainViewController *)controller
+{
+    [self.sideBarVC toggleMenu];
+
+}
+
+- (void)NewMainViewDidTapMenuButton:(NewMainViewController *)controller
 {
     [self.sideBarVC toggleMenu];
 
